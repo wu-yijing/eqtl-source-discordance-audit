@@ -89,9 +89,13 @@ PH = ['DR', 'DN', 'DPN']
 gtex_z = [f(GT[('RNH1', t)]['Z_Nerve_Tibial']) for t in PH]
 eqtl_z = [f(EQ[('RNH1', t)]['Z_eQTLGen']) for t in PH]
 print('\nFigure 7 panel (a) — 官方 Z: GTEx NT', np.round(gtex_z, 3), ' eQTLGen', np.round(eqtl_z, 3))
-# panel (b) 数值（与 Table S4 第 1 行一致，官方）
 zF, zU = 2.31, 0.72
-m = 1.515; se = 0.795; pi = (-0.33, 3.36)
+# panel (b) 数值：直接取归档发布值，与 crosscohort_TableS4_official.csv 第 1 行（= Table S4a）逐字一致。
+# 2026-09-23 修正：原为 m = 1.515、se = 0.795 —— 那是把归档的 2 位小数（1.51 / 0.79）**再补一位**得来的
+#   中间值，而 '%.2f' % 0.795 恰好进位成 0.80，于是图内写 SE 0.80 而归档与正文都是 SE 0.79
+#   （正文：pooled Z = +1.51, SE 0.79, P = 0.056；1.51/0.79 → P = 0.056 ✓，1.51/0.80 → P = 0.059 ✗）。
+#   改用归档原值后不再有二次舍入。
+m = 1.51; se = 0.79; pi = (-0.33, 3.36)
 fig, (axa, axb) = plt.subplots(1, 2, figsize=(6.65, 2.9))
 x = np.arange(3); w = 0.36
 axa.bar(x - w / 2, gtex_z, w, color=C_GTEX, edgecolor='black', lw=0.5, label='GTEx v8 Nerve_Tibial')
