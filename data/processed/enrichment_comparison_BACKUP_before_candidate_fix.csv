@@ -1,0 +1,7 @@
+Trait,Group_eqtl,N_Tested_eqtl,N_FDR005_eqtl,eQTLGen_FDR%,Group_Merge,Group_gtex,N_Tested_gtex,N_FDR005_gtex,GTEx_FDR%
+DR,44_NonCandidate_HOTAIR,29,22,75.86,44_NonCandidate_HOTAIR,44_NonCandidate_HOTAIR,67,0,0.0
+DR,30_T2DM_Control,16,8,50.0,30_T2DM_Control,30_T2DM_Control,33,0,0.0
+DN,44_NonCandidate_HOTAIR,29,19,65.52,44_NonCandidate_HOTAIR,44_NonCandidate_HOTAIR,67,0,0.0
+DN,30_T2DM_Control,16,8,50.0,30_T2DM_Control,30_T2DM_Control,33,0,0.0
+DPN,44_NonCandidate_HOTAIR,29,21,72.41,44_NonCandidate_HOTAIR,44_NonCandidate_HOTAIR,67,0,0.0
+DPN,30_T2DM_Control,16,10,62.5,30_T2DM_Control,30_T2DM_Control,33,0,0.0

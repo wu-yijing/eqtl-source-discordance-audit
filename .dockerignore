@@ -1,0 +1,37 @@
+# .dockerignore — 排除不需要复制进 Docker 镜像的文件
+.git/
+.gitignore
+.gitattributes
+**/.gitkeep
+
+# 原始数据（太大，需挂载卷）
+data/raw/
+input/
+
+# 生成物（构建时重新生成）
+figs/*.png
+figs/*.pdf
+figs/*.svg
+
+# 临时文件
+*.log
+*.tmp
+__pycache__/
+*.pyc
+
+# 本地环境
+.env
+venv/
+.venv/
+.Rproj.user
+.Rhistory
+.RData
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 压缩包
+*.tar.gz
+*.zip
+analyses_logs.zip
