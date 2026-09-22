@@ -36,8 +36,8 @@ figs/*.svg
 *.log
 *.tmp
 
-# Docker (keep Dockerfile, ignore intermediate build artifacts)
-.dockerignore
+# Docker (keep Dockerfile and .dockerignore — both are part of the build context;
+# ignore only intermediate build artefacts)
 docker-compose*.yml
 
 # ===== SCZ replication large intermediates (regenerate via scripts) =====
