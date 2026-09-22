@@ -1,0 +1,9 @@
+R1 HRT universe = 1129 (target 1129)
+chain: [('R1', 1129), ('R2', 1112), ('R3', 1013), ('R4', 1007), ('R5', 767)]
+target: [(R1,1129),(R2,1112),(R3,1013),(R4,1007),(R5,767)]
+FINGERPRINT MATCH = True
+hk v2 30/30 in universe: True ; in R5 pool: True
+
+SECOND-CONTROL POOL (HRT x WB-only model) = 818 genes
+  of which also have NT model: 767
+  WB-only (no NT model): 51

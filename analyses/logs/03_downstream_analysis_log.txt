@@ -1,0 +1,127 @@
+========================================================================
+DOWNSTREAM ANALYSIS LOG: Direction Consistency, Spearman, Enrichment
+========================================================================
+Run Date:    2026-06-27 to 2026-06-28
+Scripts:
+  scripts/python/03_enrichment_analysis.py
+  scripts/python/04_generate_all_figures.py
+
+========================================================================
+STEP 1: DATA LOADING & MERGING
+========================================================================
+Date:         2026-06-27 15:13 (session 1 start)
+Script:       03_enrichment_analysis.py
+
+Inputs loaded:
+  - covariate_matrix.csv (covar): 104 genes × 20+ columns
+  - GTEx multi-tissue integrated results from:
+    E:/workbuddy/car dia 投稿资料/4.TWAS跑对照/R13_TWAS_Extension_integrated.csv
+    (81 rows, Stouffer integrated Z-scores across Nerve_Tibial + Whole_Blood)
+  - GTEx per-tissue results from:
+    E:/workbuddy/car dia 投稿资料/4.TWAS跑对照/R13_TWAS_Extension_per_tissue.csv
+    (302 rows, tissue-specific Z-scores)
+  - eQTLGen S-PrediXcan results:
+    ca. 99 rows from re设计方案/3.富集分析基础数据不完整 + 协变量不匹配/
+    eqtlgen_spredixcan_results.csv
+  - eQTLGen vs GTEx comparison:
+    re设计方案/3.富集分析基础数据不完整 + 协变量不匹配/
+    eqtlgen_vs_gtex_comparison.csv (90+ gene-phenotype pairs)
+  - Background gene Z-scores (from GTEx whole-WAS output for Mahalanobis pool)
+
+Group composition (from covariate_matrix.csv):
+  - Candidate genes: 30 (15 pull-down + 15 literature curation)
+  - Non-candidate genes: 44 (After Unused>=2.0 filter, from 54 original)
+    Excluded (10): RPS10P5, RPL7A, SERPINH1, RPL17, H2AJ, RPL13, TPM4,
+                   TUBB4B, VAT1, H3-7
+  - T2DM control genes: 30 (from published T2DM GWAS associations)
+  - Background pool: full GTEx/eQTLGen TWAS output for matching
+
+========================================================================
+STEP 2: DIRECTION CONSISTENCY ANALYSIS
+========================================================================
+Data file:    eqtlgen_vs_gtex_comparison.csv (90+ gene-phenotype pairs)
+Scripts:      visualize_plan2.py, visualize_plan2_v2.py
+              (from 余下方案2执行结果/)
+Date:         2026-06-27
+
+Method:
+  sign(Z_eQTLGen) == sign(Z_GTEx_Multi) for each gene-phenotype pair
+  Binomial test: H0: p=0.5 (random direction)
+
+Actual data sample from comparison CSV (DR trait):
+  Gene               Z_eQTLGen  Z_GTEx   Same_Direction
+  RPS8               +26.54     +2.05    True
+  ST6GAL1            +1.21      -0.45    False (inverted)
+  ANXA1              -1.73      +0.89    False (inverted)
+  HHEX               -6.68      +0.63    False (inverted)
+  PUF60              -0.36      +1.19    False (inverted)
+  RPL27A             -3.11      +0.25    False (inverted)
+  CCT3               -6.32      -0.62    True
+  RPN1               -7.59      -0.83    True
+
+Visual outputs:
+  - Fig2_Scatter_Plot (GTEx vs eQTLGen Z-scores, 3 phenotypes)
+  - Fig4_Direction_Consistency (bar chart by group)
+  - Script: visualize_plan2_v2.py (output dir: 2026-06-27-15-13-34)
+
+========================================================================
+STEP 3: SPEARMAN CORRELATION
+========================================================================
+Script:       04_generate_all_figures.py
+Method:       scipy.stats.spearmanr
+
+Results:
+  - Global ρ = 0.289 (P<0.001)
+  - DR: ρ = 0.31
+  - DN: ρ = 0.27
+  - DPN: ρ = 0.28
+
+========================================================================
+STEP 4: ENRICHMENT ANALYSIS
+========================================================================
+Script:       03_enrichment_analysis.py
+Date:         2026-06-27
+
+Method:
+  - FDR (BH) correction per analysis domain (group × phenotype × eQTL source)
+  - Enrichment rate = N_FDR_significant / N_tested
+  - Fisher's exact test: candidate vs non-candidate / candidate vs T2DM
+
+Results stored in: enrichment_comparison.csv
+
+Key observation: eQTLGen non-candidate FDR rates (65-76%) far exceed
+candidate rates (0%), reversing the GTEx trend.
+
+========================================================================
+STEP 5: PULL-DOWN vs LITERATURE STRATIFICATION
+========================================================================
+Script:       03_enrichment_analysis.py, 04_generate_all_figures.py
+Date:         2026-06-27 to 2026-06-28
+
+Method:
+  - Split 30 candidates: pull-down source (n=15) vs literature (n=15)
+  - Compare direction consistency and Z distribution between strata
+
+Result: No systematic difference between pull-down and literature groups.
+(Figure S2: Pulldown_Stratification)
+
+========================================================================
+STEP 6: FIGURE GENERATION
+========================================================================
+Script:       04_generate_all_figures.py
+Date:         2026-06-28
+Figures output: figs/ directory
+  - Fig1: Flowchart (study design; not from script, manually created)
+  - Fig2: Scatter plot (GTEx vs eQTLGen Z-scores, 3 phenotypes)
+  - Fig3: Waterfall plot (core gene Z comparison)
+  - Fig4: Enrichment bar chart (3 groups × 3 phenotypes × 2 sources)
+  - Fig5: Love plot (Mahalanobis matching balance)
+  - Fig6: RNH1 attenuation (cross-population + cross-eQTL source)
+  - FigS1: ACAT-O sensitivity (Stouffer vs ACAT-O validation)
+  - FigS2: Pull-down stratification
+  - FigS3: Matched pairs (30 pairs visualization)
+  - FigS4: Z density distribution (eQTLGen, 3 phenotypes)
+
+========================================================================
+END OF DOWNSTREAM ANALYSIS LOG
+========================================================================

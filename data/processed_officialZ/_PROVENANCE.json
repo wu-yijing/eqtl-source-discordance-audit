@@ -1,0 +1,33 @@
+{
+ "deprecated_at": "2026-09-17",
+ "reason": "pre-correction S-PrediXcan (missing sigma_i factor; PLINK 2-bit decoding bug)",
+ "superseded_by": "data/processed_officialZ/",
+ "official_reference": "Additional file 1 Tables S2/S12/S14/S17; doi concept 10.5281/zenodo.21238202",
+ "stale_files": [
+  "candidate_comparison_DR.csv",
+  "covariate_matrix.csv",
+  "enrichment_comparison.csv",
+  "enrichment_comparison_BACKUP_before_candidate_fix.csv",
+  "enrichment_comparison_BACKUP_before_testbed_fix.csv",
+  "enrichment_comparison_harmonized.csv",
+  "eqtlgen_DR_pergene_FDR.csv",
+  "eqtlgen_spredixcan_harmonized_results.csv",
+  "eqtlgen_spredixcan_results.csv",
+  "eqtlgen_vs_gtex_comparison.csv",
+  "eqtlgen_vs_gtex_comparison_BACKUP_before_ZGTEx_fix_20260902_2020.csv",
+  "gigadb_metadata_form.csv",
+  "gtex_Nerve_Tibial_DN.csv",
+  "gtex_Nerve_Tibial_DPN.csv",
+  "gtex_Nerve_Tibial_DR.csv",
+  "gtex_Whole_Blood_DN.csv",
+  "gtex_Whole_Blood_DPN.csv",
+  "gtex_Whole_Blood_DR.csv",
+  "gtex_acat_o_results.csv",
+  "gtex_stouffer_integrated.csv",
+  "layer_analysis.csv",
+  "m6_ne_weighted_sensitivity_results.txt",
+  "m7_effect_size_supplement.json",
+  "mahalanobis_matched_pairs.csv",
+  "viz_z_distribution.csv"
+ ]
+}

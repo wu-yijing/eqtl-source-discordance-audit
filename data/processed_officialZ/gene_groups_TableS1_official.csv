@@ -1,0 +1,105 @@
+Gene,Group,Source,Pull-down Unused score,Length (bp),GC content (%),Mean eQTL SNP count
+ACTB,Candidate,Literature_curation,0.0,5345,51.0,1.0
+CKAP4,Candidate,Pull-down,14.64,20585,47.8,1.5
+DDX5,Candidate,Literature_curation,0.0,13107,42.1,1.0
+EIF4A1,Candidate,Pull-down,3.71,15881,41.5,1.0
+EIF4H,Candidate,Literature_curation,0.0,12055,44.9,2.0
+GAPDH,Candidate,Pull-down,6.18,4781,55.7,2.0
+H2AFV,Candidate,Literature_curation,0.0,15137,43.7,2.0
+HNRNPA3,Candidate,Literature_curation,0.0,10767,47.0,1.0
+HSP90AB1,Candidate,Pull-down,11.37,23614,45.0,2.5
+HSP90B1,Candidate,Pull-down,4.63,10644,49.8,1.5
+HSPA8,Candidate,Pull-down,9.7,7298,46.0,nan
+ILF2,Candidate,Literature_curation,0.0,21943,43.1,1.0
+RNH1,Candidate,Pull-down,4.0,19790,44.3,3.5
+RPL13A,Candidate,Literature_curation,0.0,5863,49.3,1.0
+RPL23A,Candidate,Literature_curation,0.0,5402,44.8,1.0
+RPL5,Candidate,Pull-down,4.99,7409,46.9,1.0
+RPL8,Candidate,Pull-down,3.79,8270,45.6,1.0
+RPLP0,Candidate,Pull-down,2.13,5504,46.3,2.0
+RPS13,Candidate,Literature_curation,0.0,5861,44.7,2.0
+RPS14,Candidate,Pull-down,2.32,5284,47.5,1.5
+RPS16,Candidate,Pull-down,1.52,3685,48.0,1.5
+RPS18,Candidate,Literature_curation,0.0,5518,48.1,nan
+RPS25,Candidate,Literature_curation,0.0,4685,46.3,nan
+RPS3,Candidate,Literature_curation,0.0,7803,41.4,1.0
+RPSA,Candidate,Pull-down,4.01,5999,50.2,3.0
+TUBB,Candidate,Pull-down,6.5,4560,50.5,1.0
+VCP,Candidate,Pull-down,4.1,15800,51.8,2.0
+XRCC5,Candidate,Literature_curation,0.0,38857,39.3,2.5
+XRCC6,Candidate,Literature_curation,0.0,26025,39.3,2.0
+YWHAQ,Candidate,Literature_curation,0.0,28638,42.4,1.0
+ANXA1,44 Non-Candidate,Pull-down,2.0,24045,44.1,2.0
+ANXA5,44 Non-Candidate,Pull-down,3.6,40340,43.3,3.5
+ATP5F1A,44 Non-Candidate,Pull-down,3.27,24790,42.1,nan
+ATP5F1B,44 Non-Candidate,Pull-down,6.71,17181,41.8,nan
+C1QBP,44 Non-Candidate,Pull-down,6.04,7460,48.1,1.5
+CAVIN1,44 Non-Candidate,Pull-down,6.32,25445,67.4,nan
+CCT3,44 Non-Candidate,Pull-down,2.01,10190,42.1,1.5
+DHX9,44 Non-Candidate,Pull-down,2.36,42685,40.5,1.0
+EEF1A1P5,44 Non-Candidate,Pull-down,2.59,19412,46.4,nan
+EEF2,44 Non-Candidate,Pull-down,4.22,11949,50.3,2.0
+EHD4,44 Non-Candidate,Pull-down,2.0,58518,45.8,3.0
+ENO1,44 Non-Candidate,Pull-down,7.84,13669,48.9,nan
+GNA13,44 Non-Candidate,Pull-down,2.0,12178,43.7,1.0
+H2BC13,44 Non-Candidate,Pull-down,9.82,5714,52.1,nan
+HMGA1,44 Non-Candidate,Pull-down,4.0,28395,42.1,nan
+HNRNPK,44 Non-Candidate,Pull-down,4.41,10786,40.2,nan
+HNRNPU,44 Non-Candidate,Pull-down,2.0,26403,43.8,nan
+HSPB1,44 Non-Candidate,Pull-down,2.0,2867,62.7,2.0
+HSPD1,44 Non-Candidate,Pull-down,4.16,6179,46.7,1.0
+ILF3,44 Non-Candidate,Pull-down,6.53,39936,41.0,nan
+MFAP1,44 Non-Candidate,Pull-down,2.04,16366,44.9,1.0
+MSN,44 Non-Candidate,Pull-down,5.17,18584,46.1,nan
+MYH9,44 Non-Candidate,Pull-down,14.19,66742,40.5,2.0
+NCL,44 Non-Candidate,Pull-down,2.92,13021,52.0,3.0
+PABPC1,44 Non-Candidate,Pull-down,4.77,10968,43.3,nan
+PCBP2,44 Non-Candidate,Pull-down,2.03,20288,45.3,1.0
+PDIA3,44 Non-Candidate,Pull-down,2.52,14255,44.9,1.5
+PDIA6,44 Non-Candidate,Pull-down,2.25,13479,45.6,1.0
+PNN,44 Non-Candidate,Pull-down,2.01,50162,43.4,1.5
+PUF60,44 Non-Candidate,Pull-down,6.65,63833,40.4,1.0
+RPL10A,44 Non-Candidate,Pull-down,2.34,4434,47.2,3.5
+RPL14,44 Non-Candidate,Pull-down,2.0,4486,50.1,1.5
+RPL18,44 Non-Candidate,Pull-down,2.52,4672,46.4,nan
+RPL27A,44 Non-Candidate,Pull-down,2.0,5214,45.1,2.0
+RPL7,44 Non-Candidate,Pull-down,2.08,6981,46.3,1.0
+RPN1,44 Non-Candidate,Pull-down,2.23,11267,42.7,1.0
+RPS15,44 Non-Candidate,Pull-down,2.07,5916,45.8,nan
+RPS3A,44 Non-Candidate,Pull-down,2.38,7181,42.1,1.0
+RPS8,44 Non-Candidate,Pull-down,2.76,5067,47.2,1.0
+RRBP1,44 Non-Candidate,Pull-down,2.0,79242,44.4,2.5
+SEPTIN2,44 Non-Candidate,Pull-down,2.0,21905,38.0,nan
+SERPINB9,44 Non-Candidate,Pull-down,2.0,4113,53.4,nan
+UBA52,44 Non-Candidate,Pull-down,2.0,2525,53.2,2.0
+YBX1,44 Non-Candidate,Pull-down,8.28,19424,44.7,nan
+ADCY5,30 T2DM control,GWAS_literature,0.0,547773,36.4,nan
+APPL1,30 T2DM control,GWAS_literature,0.0,37425,42.6,1.0
+ARAP1,30 T2DM control,GWAS_literature,0.0,122430,38.7,2.0
+CAMK1D,30 T2DM control,GWAS_literature,0.0,48057,38.1,1.5
+CDKAL1,30 T2DM control,GWAS_literature,0.0,688950,38.6,2.5
+DGKB,30 T2DM control,GWAS_literature,0.0,261485,36.4,nan
+DUSP8,30 T2DM control,GWAS_literature,0.0,61280,36.1,1.5
+FOXA2,30 T2DM control,GWAS_literature,0.0,3988,66.5,nan
+FTO,30 T2DM control,GWAS_literature,0.0,220169,38.2,1.5
+GCK,30 T2DM control,GWAS_literature,0.0,35461,60.9,3.0
+GCKR,30 T2DM control,GWAS_literature,0.0,27360,49.1,1.0
+GRB14,30 T2DM control,GWAS_literature,0.0,106288,42.2,1.0
+HHEX,30 T2DM control,GWAS_literature,0.0,27853,59.5,1.0
+HMGA2,30 T2DM control,GWAS_literature,0.0,77475,36.8,nan
+HNF1A,30 T2DM control,GWAS_literature,0.0,31786,54.4,nan
+HNF1B,30 T2DM control,GWAS_literature,0.0,59144,38.3,nan
+JAZF1,30 T2DM control,GWAS_literature,0.0,290504,41.4,2.0
+KCNJ11,30 T2DM control,GWAS_literature,0.0,9625,46.2,1.5
+KLF14,30 T2DM control,GWAS_literature,0.0,8200,65.0,1.0
+MNX1,30 T2DM control,GWAS_literature,0.0,7716,48.2,nan
+PAM,30 T2DM control,GWAS_literature,0.0,462588,36.6,1.0
+PDX1,30 T2DM control,GWAS_literature,0.0,8856,61.8,nan
+PPARG,30 T2DM control,GWAS_literature,0.0,494639,38.7,1.0
+PROX1,30 T2DM control,GWAS_literature,0.0,49409,36.5,1.0
+RREB1,30 T2DM control,GWAS_literature,0.0,177238,44.0,1.0
+SLC16A11,30 T2DM control,GWAS_literature,0.0,14520,36.5,1.0
+SLC30A8,30 T2DM control,GWAS_literature,0.0,110156,40.2,nan
+ST6GAL1,30 T2DM control,GWAS_literature,0.0,93218,37.7,1.5
+TCF7L2,30 T2DM control,GWAS_literature,0.0,224243,36.0,nan
+TSPAN8,30 T2DM control,GWAS_literature,0.0,92696,42.0,nan

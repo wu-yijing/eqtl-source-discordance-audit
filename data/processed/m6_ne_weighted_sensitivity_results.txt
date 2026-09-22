@@ -1,0 +1,25 @@
+==============================================================================
+M6(b)  k=2 primary set, sqrt(N_e)-weighted re-merge
+  studies: Z=+2.309, N_e=49304; Z=+0.723, N_e=1231
+  N_e shares: 97.6%, 2.4%
+  [primary reference] unweighted mean Z = +1.52
+  [sqrt(N_e)-weighted] pooled Z = +2.39  (two-sided P = 0.017)
+  [sqrt(N_e)-weighted] b-scale FE pooled b = 0.01065
+  [heterogeneity] Cochran Q = 0.1 (df=1), I^2 = 0.0%
+  [random effects] DL tau^2 = 0 (b scale); pooled b = 0.0106 (SE 0.0044); test Z = 2.39, P = 0.017
+==============================================================================
+M6(d)  reference merge retaining the retracted ieu-b-4803 value (not an estimate)
+  studies: Z=+2.309, N_e=49304; Z=+0.723, N_e=1231; Z=+0.950, N_e=54209
+  N_e shares: 47.1%, 1.2%, 51.8%
+  [primary reference] unweighted mean Z = +1.33
+  [sqrt(N_e)-weighted] pooled Z = +2.35  (two-sided P = 0.019)
+  [sqrt(N_e)-weighted] b-scale FE pooled b = 0.00725
+  [heterogeneity] Cochran Q = 1.3 (df=2), I^2 = 0.0%
+  [random effects] DL tau^2 = 0 (b scale); pooled b = 0.0072 (SE 0.0031); test Z = 2.35, P = 0.019
+==============================================================================
+REFERENCE  k=3 unweighted mean (retains the retracted value): Z = +1.33 ; Q = 1.5 (df=2) ; I^2 = 0.0%
+
+The primary k = 2 set is FinnGen R13 DR + UKB GCST90043640, both analysed with eQTLGen weights
+using the unmodified official MetaXcan v0.8.1 binary (max|dZ| between the raw-allele and
+pre-aligned input protocols = 0.003, from duplicate-rsID handling).
+UKB ieu-b-4803 is withdrawn: the accession is not resolvable in IEU OpenGWAS.

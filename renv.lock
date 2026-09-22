@@ -1,0 +1,46 @@
+{
+  "R": {
+    "Version": "4.5.2",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cloud.r-project.org"
+      }
+    ]
+  },
+  "Packages": {
+    "MatchIt": {
+      "Package": "MatchIt",
+      "Version": "4.5.5",
+      "Source": "CRAN",
+      "Requirements": [
+        "R (>= 3.5.0)",
+        "optmatch (>= 0.9.0)",
+        "Rcpp (>= 0.12.0)"
+      ]
+    },
+    "cobalt": {
+      "Package": "cobalt",
+      "Version": "4.5.2",
+      "Source": "CRAN",
+      "Requirements": [
+        "R (>= 4.0.0)"
+      ]
+    },
+    "optmatch": {
+      "Package": "optmatch",
+      "Version": "0.10.6",
+      "Source": "CRAN"
+    },
+    "Rcpp": {
+      "Package": "Rcpp",
+      "Version": "1.0.12",
+      "Source": "CRAN"
+    },
+    "RcppArmadillo": {
+      "Package": "RcppArmadillo",
+      "Version": "0.12.8.4.0",
+      "Source": "CRAN"
+    }
+  }
+}

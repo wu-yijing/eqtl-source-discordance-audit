@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+venv/
+.venv/
+
+# R
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Figures (generated)
+figs/*.png
+figs/*.pdf
+figs/*.svg
+
+# Misc
+*.log
+*.tmp
+
+# Docker (keep Dockerfile, ignore intermediate build artifacts)
+.dockerignore
+docker-compose*.yml
+
+# ===== SCZ replication large intermediates (regenerate via scripts) =====
+scz_replication/weights.db
+scz_replication/_rdat_tmp/
+scz_replication/*.tar
+scz_replication/*.tar.gz
+scz_replication/*.crdownload
+scz_replication/gtex_v8_mashr_snp_covariance.txt.gz
+
+# ===== Confidential manuscript & cover letter (NOT tracked — keep local only) =====
+manuscript/
+
+# ===== Internal analysis reports (working notes, keep local only — not public) =====
+analysis_reports/
+*.tar
+analyses_logs.zip
+
+# ===== Local backup / scratch files (not for repo) =====
+*_BACKUP_*.csv
+*_BACKUP_*.py
+*.bak_*
+
+# ===== Figures & tables — manuscript artefacts, MUST NOT be committed =====
+# Figure and table artefacts belong to the manuscript and to Additional file 1;
+# they are deliberately not distributed with this repository. figure_scripts_officialZ_20260917/
+# writes its output into figures/ at run time, so this guard also keeps a re-run
+# from re-introducing them.
+figures/
+tables/
+figs/
+*_caption.txt
+*_legend.txt
+*_Figure_Captions.txt

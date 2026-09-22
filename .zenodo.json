@@ -1,0 +1,60 @@
+{
+    "creators": [
+        {
+            "name": "Yijing Wu",
+            "affiliation": "Department of Endocrinology, The First Affiliated Hospital of Anhui Medical University, Hefei 230022, Anhui Province, China; Department of Endocrinology, Bengbu First People's Hospital, Bengbu 233000, Anhui Province, China"
+        },
+        {
+            "name": "Mingwei Chen",
+            "affiliation": "Department of Endocrinology, The First Affiliated Hospital of Anhui Medical University, Hefei 230022, Anhui Province, China"
+        },
+        {
+            "name": "Qiuyan Wu",
+            "affiliation": "Department of Endocrinology, The First Affiliated Hospital of Bengbu Medical University, No. 287 Changhuai Road, Bengbu 233004, Anhui Province, China"
+        },
+        {
+            "name": "Jingyi Zhao",
+            "affiliation": "Department of Endocrinology, The First Affiliated Hospital of Bengbu Medical University, No. 287 Changhuai Road, Bengbu 233004, Anhui Province, China"
+        },
+        {
+            "name": "Guoxi Jin",
+            "affiliation": "Department of Endocrinology, The First Affiliated Hospital of Bengbu Medical University, No. 287 Changhuai Road, Bengbu 233004, Anhui Province, China"
+        }
+    ],
+    "title": "eQTL weight-source choice reshapes TWAS gene candidacy: a two-axis dual-source audit with disease-agnostic calibration and a genome-wide benchmark (code & data)",
+    "description": "Analysis scripts, processed data and containerized reproducibility environment for: \"eQTL weight-source choice reshapes TWAS gene candidacy: a two-axis dual-source audit with disease-agnostic calibration and a genome-wide benchmark\" (BMC Genomics submission). eQTL-source discordance denotes here the systematic perturbation of TWAS gene-candidacy conclusions (Z-score sign, candidate rank and FDR candidacy) induced by the eQTL weight source when the GWAS input and analytic pipeline are held fixed; it is operational and not a claim of causal confounding. The archive decomposes that perturbation into a resource/sample-size axis and a tissue-context axis, calibrates it against disease-agnostic controls on a 104-gene HOTAIR-interactome testbed across three Finnish diabetic complications (FinnGen R13), and benchmarks it genome-wide in PGC3 schizophrenia. All headline Z-scores are recomputed with the unmodified official MetaXcan v0.8.1 binary after three-way allele harmonization. Scope note: this archive is a code and processed-data release only. It deliberately contains no figures, figure captions or table legends; those accompany the manuscript and its Additional file 1. Raw RNA pull-down / LC-MS/MS spectra are deposited separately in the ProteomeXchange Consortium via iProX.",
+    "license": "MIT",
+    "keywords": [
+        "TWAS",
+        "eQTL weight-source dependence",
+        "endpoint calibration",
+        "disease-agnostic control",
+        "two-axis decomposition",
+        "genome-wide calibration",
+        "cross-cohort replication",
+        "transcriptome-wide association study",
+        "diabetic complications",
+        "schizophrenia",
+        "reproducibility",
+        "S-PrediXcan",
+        "MetaXcan",
+        "GTEx",
+        "eQTLGen"
+    ],
+    "upload_type": "software",
+    "access_right": "open",
+    "communities": [
+        {
+            "identifier": "bioinformatics"
+        }
+    ],
+    "related_identifiers": [
+        {
+            "scheme": "url",
+            "identifier": "https://github.com/wu-yijing/eqtl-source-discordance-audit",
+            "relation": "isSupplementTo"
+        }
+    ],
+    "version": "1.0.0",
+    "language": "eng"
+}

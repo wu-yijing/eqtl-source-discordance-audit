@@ -1,0 +1,5 @@
+stratum,sign_concordance_mean,ci95_lo,ci95_hi,n_pairs
+overall (96 pairs),0.9669,0.9375,0.9896,96
+DR,0.9384,0.8750,1.0000,32
+DN,0.9906,0.9680,1.0000,32
+DPN,0.9717,0.9375,1.0000,32

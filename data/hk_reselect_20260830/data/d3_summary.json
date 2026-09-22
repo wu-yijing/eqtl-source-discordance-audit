@@ -1,0 +1,69 @@
+{
+ "seed": 20260911,
+ "pool_size": 11820,
+ "sample_size": 600,
+ "control": [
+  "ACAT1",
+  "ACD",
+  "ACTN4",
+  "ALKBH3",
+  "BAIAP2L2",
+  "CDC42",
+  "CTBS",
+  "DSC2",
+  "EEPD1",
+  "EXOSC8",
+  "FGFR4",
+  "FKBP9",
+  "GNPDA1",
+  "HNRNPD",
+  "HRG",
+  "INO80B",
+  "KBTBD11",
+  "MAB21L3",
+  "MSTO1",
+  "NPRL2",
+  "OLFM1",
+  "PLD2",
+  "RICTOR",
+  "RRP12",
+  "TAGLN2",
+  "TM2D1",
+  "TRPC4AP",
+  "UBOX5",
+  "UTP3",
+  "ZFYVE27"
+ ],
+ "flow": [
+  [
+   "WB model genes",
+   12622
+  ],
+  [
+   "minus 104-panel",
+   12555
+  ],
+  [
+   "minus panel families",
+   11885
+  ],
+  [
+   "minus disease blacklist = POOL_A",
+   11820
+  ],
+  [
+   "of which have BOTH-tissue models",
+   10450
+  ]
+ ],
+ "null_bh": [
+  47.43589743589744,
+  61.904761904761905,
+  75.00771604938261
+ ],
+ "null_p05": [
+  53.08641975308642,
+  65.47619047619048,
+  77.38095238095238
+ ]
+}

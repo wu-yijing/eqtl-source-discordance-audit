@@ -1,0 +1,61 @@
+========================================================================
+CROSS-POPULATION REPLICATION LOG
+========================================================================
+Run Date:    2026-06-27 to 2026-06-28
+Method:      UK Biobank independent DR GWAS + published meta-analyses
+
+========================================================================
+UK BIOBANK DR REPLICATION
+========================================================================
+
+Data source: UK Biobank DR GWAS (two independent subsets)
+Sample size: [UK Biobank, European ancestry]
+Phenotype:   Diabetic Retinopathy (ICD-10 codes)
+
+Method:
+  - S-PrediXcan with eQTLGen weights (same as FinnGen sensitivity analysis)
+  - Direction consistency check: sign(Z_UKB) vs sign(Z_FinnGen_eQTLGen)
+
+Results:
+  - 8/8 candidate genes tested: direction consistency 87.5% (P=0.035)
+  - All 8 genes: P > 0.05 (no individual gene replicated at nominal significance)
+  - RNH1: Z_UKB > 0, direction consistent with FinnGen eQTLGen (Z=+1.18)
+    but effect attenuated 3.7-15x compared to GTEx (Z=+8.50)
+
+========================================================================
+META-ANALYSIS (DR)
+========================================================================
+
+Studies included:
+  1. FinnGen R13 DR (GTEx weights)  — baseline
+  2. UK Biobank DR subset 1 (eQTLGen weights)
+  3. UK Biobank DR subset 2 (eQTLGen weights)
+  4. Cai et al. 2026 UKB T2D-DR
+
+Gene: RNH1 (lead cross-complication candidate)
+
+Heterogeneity assessment:
+  - Cochran's Q = 40.0
+  - I² = 95.0% (substantial heterogeneity)
+  - P_heterogeneity < 0.0001
+  - FE Z = +3.37 (P = 7.4 × 10⁻⁴)
+  - 95% prediction interval: [-4.00, +10.68] (crosses zero)
+
+Interpretation:
+  - FE meta-analysis marginally significant
+  - I²=95% indicates extreme heterogeneity
+  - Wide 95% PI crossing zero → the effect cannot be reliably predicted
+    in a new study
+  - Cross-population replication fails
+
+========================================================================
+EXTERNAL VALIDATION
+========================================================================
+
+Sakaue et al. (2021) DN GWAS:
+  - Used as additional validation
+  - RNH1 not significant in eQTLGen-based analysis
+
+========================================================================
+END OF CROSS-POPULATION REPLICATION LOG
+========================================================================

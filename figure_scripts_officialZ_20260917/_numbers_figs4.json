@@ -1,0 +1,36 @@
+{
+  "universe": "harmonized eQTLGen arm: valid S-PrediXcan Z + numeric n_snps_model",
+  "genes_total": 61,
+  "groups": {
+    "Candidate": {
+      "n": 24,
+      "median": 374.0,
+      "q1": 151.0,
+      "q3": 636.5,
+      "min": 21.0,
+      "max": 1848.0
+    },
+    "NonCandidate": {
+      "n": 24,
+      "median": 632.0,
+      "q1": 410.5,
+      "q3": 1057.0,
+      "min": 2.0,
+      "max": 1769.0
+    },
+    "T2DM_Control": {
+      "n": 13,
+      "median": 669.0,
+      "q1": 316.0,
+      "q3": 1312.0,
+      "min": 59.0,
+      "max": 5032.0
+    }
+  },
+  "overall": {
+    "n": 61,
+    "median": 512.0,
+    "q1": 215.0,
+    "q3": 901.0
+  }
+}

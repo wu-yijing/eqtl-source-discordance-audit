@@ -1,0 +1,198 @@
+========================================================================
+MASTER PROVENANCE LOG
+========================================================================
+Project: TWAS-eQTL-source-confounding
+Paper:   "eQTL source selection systematically biases TWAS cross-population
+         replication: A quantitative evaluation using HOTAIR binding proteins
+         in diabetic complications"
+Authors: Yijing Wu, Chen Mingwei*, Jin Guoxi*, et al.
+Date:    2026-06-28
+
+========================================================================
+1. STUDY DESIGN OVERVIEW
+========================================================================
+
+Model system: HOTAIR RNA pull-down binding proteins
+Genes analyzed: 104 (30 candidates + 44 non-candidates + 30 T2DM controls)
+Phenotypes: DR (Diabetic Retinopathy), DN (Diabetic Nephropathy),
+            DPN (Diabetic Peripheral Neuropathy)
+eQTL sources: GTEx v8 (multi-tissue MASHR) vs eQTLGen (whole blood meta-analysis)
+GWAS source: FinnGen R13
+
+Key analyses:
+  (A) S-PrediXcan TWAS with GTEx v8 weights (baseline)
+  (B) S-PrediXcan TWAS with eQTLGen weights (sensitivity)
+  (C) Direction consistency & Spearman correlation (A vs B)
+  (D) FDR enrichment analysis by group × phenotype × eQTL source
+  (E) Mahalanobis covariate matching + post-matching enrichment
+  (F) Pull-down vs literature stratification
+  (G) Cross-population replication (UK Biobank)
+
+========================================================================
+2. DATA SOURCES
+========================================================================
+
+2.1 FinnGen R13 GWAS
+  - URL: https://finngen.gitbook.io/finngen-library/documentation/data-releases
+  - Release: R13
+  - DR:      N_case=15,353, N_control=62,519
+  - DN:      N_case=6,043,  N_control=97,506
+  - DPN:     N_case=4,145,  N_control=99,346
+  - [2026-09-16] CORRECTED: the control counts first recorded above
+    (398,626 / 396,166 / 393,402) were transcription errors inherited
+    from an early scratch script and match no endpoint in the R13
+    manifest (2,754 endpoints checked). The values now given are the
+    R13 manifest entries for these three endpoints and were
+    independently reproduced from the af_alt_cases / af_alt_controls
+    fields of the downloaded summary statistics. Case counts were
+    correct as originally recorded.
+    Consequence: N_e for the FinnGen R13 DR cohort is
+    4*15353*62519/77872 = 49,304, not the previously reported 59,134.
+    The sqrt(N_e)-weighted RNH1 DR sensitivity merge is therefore
+    +9.88 (P = 5.1e-23), not +10.28 (see
+    scripts/python/m6_ne_weighted_sensitivity.py).
+  - Format: GWAS summary statistics (Z-score / P-value / OR)
+  - Downloaded: 2026-05 (exact date varies by phenotype)
+
+2.2 GTEx v8 eQTL Weights (MASHR)
+  - Source: https://github.com/hakyimlab/MetaXcan
+  - Models used:
+    (a) Nerve_Tibial MASHR (N=532)
+    (b) Whole_Blood MASHR (N=670)
+  - Weight file: GTExv8.MASHR.{tissue}.db
+  - Covariance file: 1000G_EUR_covariance.txt.gz (from MetaXcan bundle)
+
+2.3 eQTLGen cis-eQTL Weights
+  - URL: https://www.eqtlgen.org/
+  - Reference: Vosa et al. (2021) Nature Genetics 53:1300-1310
+  - N=31,684 (whole blood)
+  - Format: Z-score meta-analysis cis-eQTL
+  - Processed weights for S-PrediXcan
+
+2.4 1000 Genomes LD Reference
+  - Phase: 3 (v5)
+  - Population: EUR
+  - Used for: S-PrediXcan covariance estimation
+
+========================================================================
+3. SOFTWARE ENVIRONMENT
+========================================================================
+
+3.1 S-PrediXcan (MetaXcan)
+  - Repository: https://github.com/hakyimlab/MetaXcan
+  - Version: v1.0
+  - Commit: [MetaXcan master branch, as of 2026-05]
+  - Language: Python 3.7+ (run as command-line tool)
+  - Key files:
+    MetaXcan/software/SPrediXcan.py
+    MetaXcan/software/SPrediXcan_expression.py
+
+3.2 Downstream Analysis (Python)
+  - Python version: 3.13
+  - Conda environment: twas-eqtl
+  - Environment file: environment.yml (see project root)
+  - Key packages:
+    numpy>=1.24.0
+    pandas>=1.5.0
+    scipy>=1.10.0
+    statsmodels>=0.14.0
+    matplotlib>=3.7.0
+    seaborn>=0.12.0
+    scikit-learn>=1.2.0
+
+3.3 Mahalanobis Matching (R)
+  - R version: 4.5.2
+  - Package: matchit v4.5.0
+  - Method: nearest neighbor, Mahalanobis distance, ratio=1
+  - Matching dimensions: log10(gene length), GC%, eQTL SNP count
+
+========================================================================
+4. ANALYSIS WORKFLOW
+========================================================================
+
+Step 1: S-PrediXcan with GTEx v8 weights
+  -> Multiple tissues per gene (Nerve_Tibial + Whole_Blood)
+  -> Stouffer integration across tissues
+  -> ACAT-O sensitivity validation
+  -> Output: GTEx TWAS Z-scores per gene × phenotype
+
+Step 2: S-PrediXcan with eQTLGen weights
+  -> Single tissue (whole blood)
+  -> Same FinnGen R13 GWAS input
+  -> Output: eQTLGen TWAS Z-scores per gene × phenotype
+
+Step 3: Direction consistency analysis
+  -> Compare Z-score signs between GTEx vs eQTLGen
+  -> Binomial sign test
+  -> Per group × per phenotype
+
+Step 4: Spearman correlation
+  -> Rank-based correlation of GTEx vs eQTLGen Z-scores
+  -> Global + per phenotype
+
+Step 5: Enrichment analysis
+  -> FDR (BH) correction per analysis domain
+  -> Fisher's exact test for group comparison
+  -> GTEx baseline -> eQTLGen sensitivity -> Mahalanobis post-matching
+
+Step 6: Mahalanobis matching (R matchit)
+  -> Match 30 candidate genes from full-genome pool
+  -> Dimensions: log10(Length), GC%, eQTL_SNPs_Mean
+  -> Nearest neighbor, Mahalanobis distance, ratio=1
+
+Step 7: Post-matching enrichment validation
+  -> Repeat FDR enrichment on matched pairs
+  -> SMD diagnostics (Love plot)
+
+Step 8: Stratification by pull-down vs literature
+  -> Split 30 candidates by source
+  -> Direction consistency per stratum
+
+Step 9: Cross-population replication
+  -> UK Biobank independent DR GWAS
+  -> Meta-analysis: Cochran's Q, I-squared, 95% PI
+  -> External validation: Cai et al. 2026, Sakaue et al. 2021
+
+========================================================================
+5. KEY OUTPUT FILES (Checksums at end)
+========================================================================
+
+See 05_checksums.txt for complete SHA256 values.
+
+Input files (downloaded, not in repo):
+  - FinnGen_R13_DR.sumstats.gz
+  - FinnGen_R13_DN.sumstats.gz
+  - FinnGen_R13_DPN.sumstats.gz
+  - GTEx_v8_MASHR_Nerve_Tibial.db
+  - GTEx_v8_MASHR_Whole_Blood.db
+  - eQTLGen_Whole_Blood_weights.csv
+  - 1000G_EUR_covariance.txt.gz
+
+Output files (in data/processed/):
+  - eqtlgen_spredixcan_results.csv
+  - eqtlgen_vs_gtex_comparison.csv
+  - covariate_matrix.csv
+  - mahalanobis_matched_pairs.csv
+  - enrichment_comparison.csv
+  - candidate_comparison_DR.csv
+  - viz_z_distribution.csv
+  - layer_analysis.csv
+
+Processed data files (in gigadb_submission/):
+  (Same as above + gigadb_metadata_form.csv, README.md)
+
+Generated figures (in figs/):
+  - Fig1_Flowchart.png/pdf
+  - Fig2_Scatter_Plot.png/pdf
+  - Fig3_Waterfall.png/pdf
+  - Fig4_Enrichment.png/pdf
+  - Fig5_Love_Plot.png/pdf
+  - Fig6_RNH1_Attenuation.png/pdf
+  - FigS1_ACAT_Sensitivity.png/pdf
+  - FigS2_Pulldown_Stratification.png/pdf
+  - FigS3_Matched_Pairs.png/pdf
+  - FigS4_ZDensity.png/pdf
+
+========================================================================
+END OF MASTER PROVENANCE LOG
+========================================================================

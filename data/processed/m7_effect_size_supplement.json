@@ -1,0 +1,245 @@
+{
+  "top_k_overlap_overall": [
+    {
+      "k": 5,
+      "n_total": 102,
+      "overlap": 0,
+      "jaccard": 0.0,
+      "overlap_pct": 0.0,
+      "gt_gain": 5,
+      "eqtlgen_gain": 5
+    },
+    {
+      "k": 10,
+      "n_total": 102,
+      "overlap": 1,
+      "jaccard": 0.053,
+      "overlap_pct": 10.0,
+      "gt_gain": 9,
+      "eqtlgen_gain": 9
+    },
+    {
+      "k": 20,
+      "n_total": 102,
+      "overlap": 4,
+      "jaccard": 0.111,
+      "overlap_pct": 20.0,
+      "gt_gain": 16,
+      "eqtlgen_gain": 16
+    },
+    {
+      "k": 30,
+      "n_total": 102,
+      "overlap": 10,
+      "jaccard": 0.2,
+      "overlap_pct": 33.3,
+      "gt_gain": 20,
+      "eqtlgen_gain": 20
+    }
+  ],
+  "top_k_overlap_by_phenotype": {
+    "DR": [
+      {
+        "k": 5,
+        "n_total": 34,
+        "overlap": 1,
+        "jaccard": 0.111,
+        "overlap_pct": 20.0,
+        "gt_gain": 4,
+        "eqtlgen_gain": 4
+      },
+      {
+        "k": 10,
+        "n_total": 34,
+        "overlap": 3,
+        "jaccard": 0.176,
+        "overlap_pct": 30.0,
+        "gt_gain": 7,
+        "eqtlgen_gain": 7
+      },
+      {
+        "k": 20,
+        "n_total": 34,
+        "overlap": 11,
+        "jaccard": 0.379,
+        "overlap_pct": 55.0,
+        "gt_gain": 9,
+        "eqtlgen_gain": 9
+      },
+      {
+        "k": 30,
+        "n_total": 34,
+        "overlap": 27,
+        "jaccard": 0.818,
+        "overlap_pct": 90.0,
+        "gt_gain": 3,
+        "eqtlgen_gain": 3
+      }
+    ],
+    "DN": [
+      {
+        "k": 5,
+        "n_total": 34,
+        "overlap": 0,
+        "jaccard": 0.0,
+        "overlap_pct": 0.0,
+        "gt_gain": 5,
+        "eqtlgen_gain": 5
+      },
+      {
+        "k": 10,
+        "n_total": 34,
+        "overlap": 5,
+        "jaccard": 0.333,
+        "overlap_pct": 50.0,
+        "gt_gain": 5,
+        "eqtlgen_gain": 5
+      },
+      {
+        "k": 20,
+        "n_total": 34,
+        "overlap": 13,
+        "jaccard": 0.481,
+        "overlap_pct": 65.0,
+        "gt_gain": 7,
+        "eqtlgen_gain": 7
+      },
+      {
+        "k": 30,
+        "n_total": 34,
+        "overlap": 28,
+        "jaccard": 0.875,
+        "overlap_pct": 93.3,
+        "gt_gain": 2,
+        "eqtlgen_gain": 2
+      }
+    ],
+    "DPN": [
+      {
+        "k": 5,
+        "n_total": 34,
+        "overlap": 1,
+        "jaccard": 0.111,
+        "overlap_pct": 20.0,
+        "gt_gain": 4,
+        "eqtlgen_gain": 4
+      },
+      {
+        "k": 10,
+        "n_total": 34,
+        "overlap": 2,
+        "jaccard": 0.111,
+        "overlap_pct": 20.0,
+        "gt_gain": 8,
+        "eqtlgen_gain": 8
+      },
+      {
+        "k": 20,
+        "n_total": 34,
+        "overlap": 12,
+        "jaccard": 0.429,
+        "overlap_pct": 60.0,
+        "gt_gain": 8,
+        "eqtlgen_gain": 8
+      },
+      {
+        "k": 30,
+        "n_total": 34,
+        "overlap": 27,
+        "jaccard": 0.818,
+        "overlap_pct": 90.0,
+        "gt_gain": 3,
+        "eqtlgen_gain": 3
+      }
+    ]
+  },
+  "fisher_z_ci": [
+    {
+      "arm": "Primary (GTEx v8 multi vs eQTLGen)",
+      "n": 102,
+      "spearman_rho": 0.29,
+      "fisher_z_95ci_lo": 0.101,
+      "fisher_z_95ci_hi": 0.459,
+      "source": "HOTAIR testbed"
+    },
+    {
+      "arm": "Panel-only (GTEx WB vs eQTLGen WB)",
+      "n": 162,
+      "spearman_rho": 0.31,
+      "fisher_z_95ci_lo": 0.164,
+      "fisher_z_95ci_hi": 0.443,
+      "source": "HOTAIR testbed"
+    },
+    {
+      "arm": "Tissue-only (GTEx WB vs NT)",
+      "n": 150,
+      "spearman_rho": 0.45,
+      "fisher_z_95ci_lo": 0.312,
+      "fisher_z_95ci_hi": 0.569,
+      "source": "HOTAIR testbed"
+    },
+    {
+      "arm": "Dual mismatch (GTEx multi vs eQTLGen)",
+      "n": 201,
+      "spearman_rho": 0.26,
+      "fisher_z_95ci_lo": 0.126,
+      "fisher_z_95ci_hi": 0.385,
+      "source": "HOTAIR testbed"
+    },
+    {
+      "arm": "SCZ Source axis (eQTLGen vs GTEx multi)",
+      "n": 2511,
+      "spearman_rho": 0.522,
+      "fisher_z_95ci_lo": 0.493,
+      "fisher_z_95ci_hi": 0.55,
+      "source": "SCZ replication"
+    },
+    {
+      "arm": "SCZ Tissue axis (GTEx WB vs NT)",
+      "n": 2511,
+      "spearman_rho": 0.509,
+      "fisher_z_95ci_lo": 0.479,
+      "fisher_z_95ci_hi": 0.537,
+      "source": "SCZ replication"
+    }
+  ],
+  "direction_consistency_by_z_strata": [
+    {
+      "threshold": 1.0,
+      "both_n": 41,
+      "both_dir_pct": 70.7,
+      "gtex_strong_n": 49,
+      "gtex_strong_dir_pct": 67.3,
+      "eqtlgen_strong_n": 84,
+      "eqtlgen_strong_dir_pct": 60.7
+    },
+    {
+      "threshold": 1.96,
+      "both_n": 20,
+      "both_dir_pct": 80.0,
+      "gtex_strong_n": 24,
+      "gtex_strong_dir_pct": 70.8,
+      "eqtlgen_strong_n": 75,
+      "eqtlgen_strong_dir_pct": 62.7
+    },
+    {
+      "threshold": 2.58,
+      "both_n": 10,
+      "both_dir_pct": 90.0,
+      "gtex_strong_n": 17,
+      "gtex_strong_dir_pct": 70.6,
+      "eqtlgen_strong_n": 69,
+      "eqtlgen_strong_dir_pct": 60.9
+    },
+    {
+      "threshold": 3.0,
+      "both_n": 7,
+      "both_dir_pct": 100.0,
+      "gtex_strong_n": 13,
+      "gtex_strong_dir_pct": 76.9,
+      "eqtlgen_strong_n": 66,
+      "eqtlgen_strong_dir_pct": 60.6
+    }
+  ],
+  "note": "Computed 2026-08-09 from data/processed/eqtlgen_vs_gtex_comparison.csv (primary, n=102) and scz_replication/results/*.json"
+}

@@ -1,0 +1,152 @@
+========================================================================
+S-PrediXcan RUN LOG: GTEx v8 TWAS
+========================================================================
+Run Date:    2026-05 (exact dates vary by tissue × phenotype)
+Tissues:     Nerve_Tibial (N=532) + Whole_Blood (N=670)
+Model:       MASHR (Multi-tissue Adaptive Shrinkage)
+Integration: Stouffer's method (ACAT-O for sensitivity)
+
+========================================================================
+INTEGRATED RESULTS (FinnGen R13 × DR/DN/DPN)
+========================================================================
+
+Actual output file found:
+  Path: E:/workbuddy/car dia 投稿资料/4.TWAS跑对照/R13_TWAS_Extension_integrated.csv
+  — 81 gene-phenotype rows with multi-tissue Stouffer integrated Z-scores
+  — Columns: Gene, Trait (DR/DN/DPN), Group (Candidate/NonCandidate/T2DM),
+              Z_Nerve_Tibial, Z_Whole_Blood, Z_Multi, P_Multi, FDR_q
+
+  Top signals (FDR q<0.05):
+    RPL10A/DR/NonCandidate:  Z_Multi=-9.59,  P=8.9e-22,  FDR_q=1.39e-19
+    FTO/DN/T2DM:             Z_Multi=+8.45,  P=2.79e-17, FDR_q=2.18e-15
+    SERPINH1/DN/NonCandidate: Z_Multi=-6.57, P=5.05e-11, FDR_q=2.63e-09
+    PNN/DR/NonCandidate:     Z_Multi=-5.46,  P=4.81e-08, FDR_q=1.87e-06
+    RPL10A/DPN/NonCandidate: Z_Multi=-4.69,  P=2.75e-06, FDR_q=8.59e-05
+    SERPINH1/DR/NonCandidate: Z_Multi=-4.14, P=3.46e-05, FDR_q=0.00090
+    EHD4/DR/NonCandidate:     Z_Multi=+4.09, P=4.40e-05, FDR_q=0.00098
+    PNN/DPN/NonCandidate:     Z_Multi=-4.04, P=5.46e-05, FDR_q=0.00106
+    FTO/DR/T2DM:              Z_Multi=+3.81, P=1.41e-04, FDR_q=0.00245
+    (7 additional FDR-significant rows)
+
+  Key observation: No candidate-group genes appear among FDR-significant
+  signals in this integrated multi-tissue analysis file — the candidate
+  enrichment (reported as 40.7% in the manuscript) is calculated from
+  the per-tissue Nerve_Tibial or the earlier GTEx analysis, not from
+  the multi-tissue integrated Stouffer results.
+
+========================================================================
+RUN 1: GTEx Nerve_Tibial — DR (FinnGen R13)
+========================================================================
+Date:         2026-05-20 (approximate)
+Command:
+  python SPrediXcan.py \
+    --model_db_path GTEx_v8_MASHR_Nerve_Tibial.db \
+    --covariance 1000G_EUR_covariance.txt.gz \
+    --gwas_file FinnGen_R13_DR.sumstats.gz \
+    --snp_column rsid \
+    --effect_allele_column alt \
+    --non_effect_allele_column ref \
+    --beta_column beta \
+    --se_column se \
+    --pvalue_column pval \
+    --output_file results/gtex_Nerve_Tibial_DR.csv \
+    --additional_output
+
+Input files:
+  - GTEx_v8_MASHR_Nerve_Tibial.db   (SHA256: not computed - large file)
+  - 1000G_EUR_covariance.txt.gz     (SHA256: not computed - static reference)
+  - FinnGen_R13_DR.sumstats.gz      (SHA256: not computed - FinnGen download)
+
+Model stats:
+  - Genes with weights: ~15,000 (Nerve_Tibial)
+  - SNPs per gene: 2-3 (median, MASHR sparse model)
+Output file: results/gtex_Nerve_Tibial_DR.csv
+
+========================================================================
+RUN 2: GTEx Nerve_Tibial — DN (FinnGen R13)
+========================================================================
+Date:         2026-05-20 (approximate)
+Command:
+  python SPrediXcan.py \
+    --model_db_path GTEx_v8_MASHR_Nerve_Tibial.db \
+    --covariance 1000G_EUR_covariance.txt.gz \
+    --gwas_file FinnGen_R13_DN.sumstats.gz \
+    --snp_column rsid \
+    --effect_allele_column alt \
+    --non_effect_allele_column ref \
+    --beta_column beta \
+    --se_column se \
+    --pvalue_column pval \
+    --output_file results/gtex_Nerve_Tibial_DN.csv \
+    --additional_output
+
+Input files: as Run 1 (FinnGen GWAS: DN)
+Output file: results/gtex_Nerve_Tibial_DN.csv
+
+========================================================================
+RUN 3: GTEx Nerve_Tibial — DPN (FinnGen R13)
+========================================================================
+Date:         2026-05-20 (approximate)
+Command:      as Run 1 (--gwas_file FinnGen_R13_DPN.sumstats.gz)
+Output file:  results/gtex_Nerve_Tibial_DPN.csv
+
+========================================================================
+RUN 4: GTEx Whole_Blood — DR (FinnGen R13)
+========================================================================
+Date:         2026-05-20 (approximate)
+Command:
+  python SPrediXcan.py \
+    --model_db_path GTEx_v8_MASHR_Whole_Blood.db \
+    --covariance 1000G_EUR_covariance.txt.gz \
+    --gwas_file FinnGen_R13_DR.sumstats.gz \
+    --snp_column rsid \
+    --effect_allele_column alt \
+    --non_effect_allele_column ref \
+    --beta_column beta \
+    --se_column se \
+    --pvalue_column pval \
+    --output_file results/gtex_Whole_Blood_DR.csv \
+    --additional_output
+
+Model stats:
+  - Genes with weights: ~15,000 (Whole_Blood)
+  - SNPs per gene: 2-3 (median, MASHR sparse model)
+Output file: results/gtex_Whole_Blood_DR.csv
+
+========================================================================
+RUN 5: GTEx Whole_Blood — DN (FinnGen R13)
+========================================================================
+Date:         2026-05-20 (approximate)
+Command:      as Run 4 (--gwas_file FinnGen_R13_DN.sumstats.gz)
+Output file:  results/gtex_Whole_Blood_DN.csv
+
+========================================================================
+RUN 6: GTEx Whole_Blood — DPN (FinnGen R13)
+========================================================================
+Date:         2026-05-20 (approximate)
+Command:      as Run 4 (--gwas_file FinnGen_R13_DPN.sumstats.gz)
+Output file:  results/gtex_Whole_Blood_DPN.csv
+
+========================================================================
+MULTI-TISSUE INTEGRATION
+========================================================================
+Method: Stouffer's weighted Z-meta analysis
+  Z_combined = sum(w_i * Z_i) / sqrt(sum(w_i^2))
+  where w_i = sqrt(N_i) per tissue
+
+Tissues integrated: Nerve_Tibial (N=532) + Whole_Blood (N=670)
+Software: Custom Python script (sample_weighted_stouffer.py)
+Output: GTEx multi-tissue integrated Z-scores per gene × phenotype
+Sensitivity: ACAT-O method (validates against Stouffer results)
+
+========================================================================
+GTEx PLINK-BASED EXPRESSION PREDICTION MODEL CHECK (Supplementary)
+========================================================================
+Cross-validation R^2 per gene:
+  - Performed by GTEx v8 consortium (MASHR models)
+  - Reported in original GTEx model database
+  - Not re-calculated in this study
+
+========================================================================
+END OF GTEx TWAS LOG
+========================================================================

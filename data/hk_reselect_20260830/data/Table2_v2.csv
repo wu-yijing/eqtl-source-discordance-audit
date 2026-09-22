@@ -1,0 +1,13 @@
+Trait,Gene Group,N Tested (GTEx),N FDR (GTEx),GTEx ACAT-O FDR (%),N Tested (eQTLGen),N FDR (eQTLGen),eQTLGen BH FDR (%)
+DR,30_HOTAIR_Candidate,26,14,53.8,28,20,71.43
+DN,30_HOTAIR_Candidate,26,16,61.5,28,15,53.57
+DPN,30_HOTAIR_Candidate,26,16,61.5,28,20,71.43
+DR,44_NonCandidate_HOTAIR,26,12,46.2,29,22,75.86
+DN,44_NonCandidate_HOTAIR,26,13,50.0,29,19,65.52
+DPN,44_NonCandidate_HOTAIR,26,18,69.2,29,21,72.41
+DR,30_T2DM_Control,19,14,73.7,16,8,50.0
+DN,30_T2DM_Control,19,8,42.1,16,8,50.0
+DPN,30_T2DM_Control,19,9,47.4,16,10,62.5
+DN,Housekeeping v2,28,12,42.9,,,
+DPN,Housekeeping v2,28,19,67.9,,,
+DR,Housekeeping v2,28,15,53.6,,,

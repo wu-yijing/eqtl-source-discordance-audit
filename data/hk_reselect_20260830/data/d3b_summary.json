@@ -1,0 +1,41 @@
+{
+ "seed": 20260911,
+ "pool_n": 818,
+ "control": [
+  "AHSA1",
+  "CALM1",
+  "CBX1",
+  "CLNS1A",
+  "COPB2",
+  "DNAJB6",
+  "GPN3",
+  "HGS",
+  "LMAN1",
+  "MLEC",
+  "NAP1L4",
+  "NUFIP2",
+  "PDS5A",
+  "POLD2",
+  "PRPF38A",
+  "PSMA6",
+  "PSMG3",
+  "PTPN11",
+  "RBM17",
+  "RNF139",
+  "SARS",
+  "SGTA",
+  "SMIM12",
+  "SOD1",
+  "STX8",
+  "TARDBP",
+  "TMEM165",
+  "UBE2Z",
+  "VDAC1",
+  "WAC"
+ ],
+ "null_bh": [
+  46.666666666666664,
+  61.904761904761905,
+  75.64102564102564
+ ]
+}

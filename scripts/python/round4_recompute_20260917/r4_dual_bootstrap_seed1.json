@@ -1,0 +1,23 @@
+{
+ "seed": 1,
+ "hk_common": 26,
+ "cand_common": 26,
+ "r_paired": -0.053,
+ "cov_pp2": -0.6345,
+ "d1c_pp": -2.56,
+ "d2c_pp": -3.85,
+ "se_analytic_pp": 1.57,
+ "se_cluster_pp": 2.23,
+ "se_cluster_crossarm_pp": 2.18,
+ "infl_cluster": 1.41,
+ "infl_cluster_crossarm": 1.38,
+ "ci90_cluster_crossarm_pp": [
+  -6.43,
+  0.73
+ ],
+ "D1_pp": -2.38,
+ "D2_pp": -3.7,
+ "pooled_pp": -2.66,
+ "se_pooled_pp": 1.47,
+ "Q": 0.136
+}

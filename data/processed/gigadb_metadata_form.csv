@@ -1,0 +1,13 @@
+Field,Value
+Dataset Title,TWAS eQTL source confounding evaluation: systematic comparison of GTEx v8 and eQTLGen weights using HOTAIR binding proteins in diabetic complications
+Authors,Wu Yijing
+Description,"This dataset supports the investigation of how eQTL weight source selection (GTEx v8 tissue-specific vs. eQTLGen large-scale whole blood) systematically biases TWAS cross-population replication conclusions. It contains processed S-PrediXcan TWAS results for 104 genes (30 HOTAIR candidate binding proteins, 44 non-candidate HOTAIR-binding proteins, 30 T2DM GWAS controls) across three diabetic microvascular complications (DR, DN, DPN) using both GTEx v8 MASHR multi-tissue weights and eQTLGen whole-blood cis-eQTL weights. Key results include paired Z-scores for cross-source comparison, Mahalanobis matching pairs for covariate-controlled enrichment analysis, and FDR enrichment rates by group, phenotype, and eQTL source."
+Taxonomic Coverage,Homo sapiens
+Data Type,Processed data tables
+File Format,CSV (comma-separated values)
+Number of Files,8
+License,CC0 1.0 Universal
+Related Manuscript,"eQTL source selection systematically biases TWAS cross-population replication: a quantitative evaluation using HOTAIR binding proteins in diabetic complications"
+Manuscript Status,Submitted to GigaScience
+Analysis Code,https://github.com/wu-yijing/eqtl-source-discordance-audit
+Funding,Not applicable

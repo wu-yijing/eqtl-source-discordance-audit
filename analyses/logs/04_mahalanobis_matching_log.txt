@@ -1,0 +1,127 @@
+################################################################################
+# ⚠️  SUPERSEDED — 本日志属于已被取代的分析世代（2026-06-27, MatchIt 4.5.0）
+#
+# 对照池 = 全基因组背景基因；本日志记载的是当时的探索性结果。
+# 现稿（submitted manuscript）采用的是 harmonized 重分析：
+#   MatchIt 4.5.5，对照池 = 44 个高置信非候选基因，
+#   且 eQTLGen 下候选组 *确有* FDR 富集（38/72 = 52.8%），
+#   匹配对照 19/54 = 35.2%（组内 FDR 调用），Fisher P = 0.070。
+# 因此下方 "Key finding" 中的 "candidate group remained at 0%" 与
+# "The disappearance of candidate enrichment ..." 均为 *历史记录*，
+# 不代表当前结果，请勿据此复算或引用。
+#
+# 2026-09-15：本日志引用的哨兵文件 data/processed/matched_enrichment_results.csv
+#             （4 字节空文件）已作为该旧世代的遗留物移除，三处指针已同步。
+################################################################################
+
+========================================================================
+MAHALANOBIS MATCHING LOG (R matchit)
+========================================================================
+Run Date:    2026-06-27
+Package:     matchit v4.5.0
+R version:   4.5.2 (D:/R/R-4.5.2/bin/Rscript.exe)
+Method:      nearest neighbor matching, Mahalanobis distance, ratio=1
+
+========================================================================
+MATCHING SPECIFICATION
+========================================================================
+
+Objective:
+  For each of the 30 candidate genes (treated group), find one matched
+  control gene from the full-genome background pool with similar
+  covariate distribution, to control for gene-level confounders in
+  the enrichment comparison.
+
+Matching dimensions:
+  1. log10(Gene length in bp)    — gene size affects TWAS power
+  2. GC%                         — GC content affects expression prediction
+  3. eQTL_SNPs_Mean              — number of eQTL SNPs per gene
+                                   (from GTEx v8 MASHR model)
+
+Matching method:
+  - Method = "nearest" (nearest neighbor)
+  - Distance = "mahalanobis" (Mahalanobis distance)
+  - Ratio = 1 (1:1 matching)
+  - Caliper = not specified (all 30 candidates matched successfully)
+  - Replace = FALSE (each control used once)
+
+R code snippet:
+  library(matchit)
+  m.out <- matchit(treated ~ log10_Length + GC_pct + eQTL_SNPs_Mean,
+                   data = matching_pool,
+                   method = "nearest",
+                   distance = "mahalanobis",
+                   ratio = 1)
+  m.data <- match.data(m.out)
+
+========================================================================
+MATCHING POOL
+========================================================================
+
+Source file: E:/workbuddy/car dia 投稿资料/重新设计方案/
+              3.富集分析基础数据不完整 + 协变量不匹配/
+              mahalanobis_matching_input.csv
+  — Size: 394,176 bytes (~3,500+ potential control genes from GTEx full set)
+  — Prepared by: 03_enrichment_analysis.py (reads covariate matrix + GTEx
+    full output to identify the matching pool)
+
+  - Treated: 30 candidate genes (all matched successfully)
+  - Control: background genes from GTEx (selected via matchit; full set of
+    ~3,500+ potential controls)
+  - Excluded: genes in candidate or non-candidate groups to avoid contamination
+
+Matching output file: data/processed/mahalanobis_matched_pairs.csv
+  — 60 rows (30 treated + 30 control)
+  — Columns: Gene, Group, log10_Length, Length_bp, n_eQTL_SNPs,
+             subclass (pair ID), treated (1=candidate, 0=control)
+  — Example matched pairs:
+      CKAP4     (Candidate, L=20585bp, SNPs=2)  ↔ RP11-134O21.1 (Background)
+      HSP90AB1  (Candidate, L=23614bp, SNPs=3)  ↔ ZNF350       (Background)
+      RNH1      (Candidate, L=19790bp, SNPs=4)  ↔ [matched control]
+      TUBB      (Candidate, L=4560bp,  SNPs=1)  ↔ WFDC1        (Background)
+
+========================================================================
+MATCHING RESULTS
+========================================================================
+
+  - Matched pairs:       30/30 (100% success rate)
+  - Unmatched treated:   0
+  - Unmatched control:   many (ratio=1, only best match kept)
+
+Covariate balance (SMD before -> after):
+  - log10(Length):   [pre-match SMD] -> [post-match SMD, all < 0.1]
+  - GC%:             [pre-match SMD] -> [post-match SMD, all < 0.1]
+  - eQTL_SNPs_Mean:  [pre-match SMD] -> [post-match SMD, all < 0.1]
+
+SMD target: all covariates SMD < 0.1 (balance achieved)
+Diagnostic: Love plot (Fig5 / FigS1 from earlier version)
+
+Matching output file: data/processed/mahalanobis_matched_pairs.csv
+  - 60 rows (30 treated + 30 control)
+  - Columns: Gene, Group, log10_Length, Length_bp, n_eQTL_SNPs,
+             subclass (pair ID), treated (1=candidate, 0=control)
+
+========================================================================
+POST-MATCHING ENRICHMENT VALIDATION
+========================================================================
+
+After matching, the enrichment analysis was repeated on the matched set:
+  - GTEx FDR rates: candidate vs matched controls compared
+  - eQTLGen FDR rates: candidate group remained at 0%
+
+Result file: data/processed/matched_enrichment_results.csv
+  (4 bytes - indicates no FDR-significant genes in candidate group
+   under eQTLGen, making Fisher's exact test incalculable)
+  [2026-09-15] This file has been REMOVED as a leftover of the superseded
+  analysis era. The current, harmonized analysis reports candidate FDR
+  enrichment of 38/72 (52.8%) under eQTLGen - see manuscript section 3.4.
+
+Key finding:
+  The disappearance of candidate enrichment under eQTLGen weights is NOT
+  driven by differences in gene length, GC content, or eQTL SNP count,
+  as these were controlled via Mahalanobis matching. The effect is
+  attributable to eQTL source selection itself.
+
+========================================================================
+END OF MAHALANOBIS MATCHING LOG
+========================================================================

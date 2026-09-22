@@ -1,0 +1,49 @@
+========================================================================
+FILE CHECKSUMS (SHA256)
+========================================================================
+Generated: 2026-06-28 18:13 (GMT+8)
+Method: sha256sum
+
+========================================================================
+PROCESSED DATA FILES (data/processed/)
+========================================================================
+cafc151ec0ba44934a13c2860f23ecd07e8b7118beeb05ae55c856b8ec01571e  candidate_comparison_DR.csv
+6a57fc3fdf06b1d039454a431390353e0e83715fedeb262739920e6cdd7742c7  covariate_matrix.csv
+eaf668bbe5f9302cf22f7e2896a4533e17e0677fa6d1678d6ea099bca59e6db1  enrichment_comparison.csv
+187df47afcff5086ed7c1ff2a552bc922e7933f90406dd957e4e4ecd4f9ee44b  eqtlgen_spredixcan_results.csv
+b0521dfe1e0b10e452f4036a84d5da214a6fedcbaaa206676f8d51c8035ed28c  eqtlgen_vs_gtex_comparison.csv
+0ecf0fdab0b0586ecd0e9f71a14428060fd7eb212780f097b07e782e093cef28  layer_analysis.csv
+954c639c8e3d9d16cce8de2fdef6e06d72c5012f8fa752929eada232764e5420  mahalanobis_matched_pairs.csv
+6bb067e27f10cefcf4fda475c08c12c0a3b7efd5b9353b5d1cb783b4f4cfb017  viz_z_distribution.csv
+
+========================================================================
+PYTHON SCRIPTS (scripts/python/)
+========================================================================
+5d325eb6a09847c8fda6a1ee8e6f3809ee3f79fc7092cc95dc4eaca6aec572d7  01_visualize_mahalanobis_love_plot.py
+49627ea8f958b2f54a6bf33602962759f26e68b658907a732dc993e07c6f5c9e  02_density_scatter_consistency.py
+8277fb77b1e4b2ca1fddc4e5c0bc29d4aeeaf6bd1d32a51bc4a31099322b0018  03_enrichment_analysis.py
+21b31db625d720971e4592bc5a780fc16ee14da4c2523f8f0f495d02171146d5  04_generate_all_figures.py
+
+========================================================================
+ANALYSIS LOGS (analyses/logs/)
+========================================================================
+3d27e4d514d9568762e3a8561e12c9eb3ff8b45f34b7652c86ddea6daa02638d  00_master_provenance.txt
+5011831b023f0cab8421d08b0cb541fc4e2b78b428148f71336aa0080b50d2fe  01_gtex_twas_log.txt
+f1aaf567e525373becc97795aef959089c5c999b4d758a427eb45d12059593a1  02_eqtlgen_twas_log.txt
+4770c237734790dbc13d667ef8c4886bc13bb9a50b15697fb0bcb7d32ce3ba3a  03_downstream_analysis_log.txt
+9006fc9825581f00e8bfd27163d4d36cb7cf220f92ae1dc0af3270ce96dc3beb  04_mahalanobis_matching_log.txt
+3adb8fc9b2c9048aae4fe85000792d6ed617937bac8ee207552a57a66fb019a9  05_cross_pop_replication_log.txt
+27e53b6d858369e32c6a421625dfcd0ac62542cadb4fddb49b49f26dcb09ab06  06_checksums.txt
+
+========================================================================
+NOTE: Large input files (FinnGen GWAS, GTEx model DBs, 1000G LD ref)
+are NOT stored in this repository due to size. They are available from:
+  - FinnGen: https://finngen.gitbook.io/finngen-library/documentation/data-releases
+  - GTEx: https://gtexportal.org/home/
+  - eQTLGen: https://www.eqtlgen.org/
+  - 1000G: https://www.internationalgenome.org/
+
+Instructions for reproducing from raw inputs are in the project README.
+========================================================================
+END OF CHECKSUMS LOG
+========================================================================

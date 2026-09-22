@@ -1,0 +1,326 @@
+{
+  "hk_genes_v2": [
+    "ANKRD40",
+    "AP3M1",
+    "ATG101",
+    "CFDP1",
+    "CUL1",
+    "DCTN2",
+    "DNAJC4",
+    "E2F4",
+    "FIBP",
+    "GOLGA3",
+    "KDM4B",
+    "LSM12",
+    "MAPK1IP1L",
+    "MCMBP",
+    "PSMC1",
+    "RABGGTB",
+    "RBX1",
+    "RNF181",
+    "RNPS1",
+    "SDF4",
+    "SDHAF2",
+    "SEC13",
+    "SF3B4",
+    "SPRYD3",
+    "SRM",
+    "STX4",
+    "TOMM20",
+    "TRIP12",
+    "TUT1",
+    "U2AF2"
+  ],
+  "selection": {
+    "seed": 20260830,
+    "n_universe_hrt": 1129,
+    "n_eligible_pool": 767,
+    "selection_rules": [
+      "R1 universe = HRT Atlas v1.0 human-mouse common HK set (MSigDB HOUNKPE_HOUSEKEEPING_GENES, n=1129)",
+      "R2 exclude any gene in the 104-gene testbed panel",
+      "R3 exclude any gene sharing a >=3-char leading alphabetic prefix with a 104-panel gene (family-level exclusion), plus MRPS*/MRPL*/MT-*",
+      "R4 exclude curated T2DM / diabetic-complication / insulin & GLP-1 signalling genes",
+      "R5 require GTEx v8 MASHR model with >=1 model SNP in BOTH Nerve_Tibial and Whole_Blood",
+      "R6 simple random sample of 30, random.seed=20260830"
+    ]
+  },
+  "enrichment_acat_o": [
+    {
+      "Group": "Candidate",
+      "Trait": "DN",
+      "N_tested": 26,
+      "N_FDR": 16,
+      "FDR_pct": 61.5
+    },
+    {
+      "Group": "Candidate",
+      "Trait": "DPN",
+      "N_tested": 26,
+      "N_FDR": 16,
+      "FDR_pct": 61.5
+    },
+    {
+      "Group": "Candidate",
+      "Trait": "DR",
+      "N_tested": 26,
+      "N_FDR": 14,
+      "FDR_pct": 53.8
+    },
+    {
+      "Group": "Housekeeping v2",
+      "Trait": "DN",
+      "N_tested": 28,
+      "N_FDR": 12,
+      "FDR_pct": 42.9
+    },
+    {
+      "Group": "Housekeeping v2",
+      "Trait": "DPN",
+      "N_tested": 28,
+      "N_FDR": 19,
+      "FDR_pct": 67.9
+    },
+    {
+      "Group": "Housekeeping v2",
+      "Trait": "DR",
+      "N_tested": 28,
+      "N_FDR": 15,
+      "FDR_pct": 53.6
+    },
+    {
+      "Group": "Non-Candidate",
+      "Trait": "DN",
+      "N_tested": 26,
+      "N_FDR": 13,
+      "FDR_pct": 50.0
+    },
+    {
+      "Group": "Non-Candidate",
+      "Trait": "DPN",
+      "N_tested": 26,
+      "N_FDR": 18,
+      "FDR_pct": 69.2
+    },
+    {
+      "Group": "Non-Candidate",
+      "Trait": "DR",
+      "N_tested": 26,
+      "N_FDR": 12,
+      "FDR_pct": 46.2
+    },
+    {
+      "Group": "T2DM Control",
+      "Trait": "DN",
+      "N_tested": 19,
+      "N_FDR": 8,
+      "FDR_pct": 42.1
+    },
+    {
+      "Group": "T2DM Control",
+      "Trait": "DPN",
+      "N_tested": 19,
+      "N_FDR": 9,
+      "FDR_pct": 47.4
+    },
+    {
+      "Group": "T2DM Control",
+      "Trait": "DR",
+      "N_tested": 19,
+      "N_FDR": 14,
+      "FDR_pct": 73.7
+    }
+  ],
+  "enrichment_nerve_tibial": [
+    {
+      "Group": "Candidate",
+      "Trait": "DN",
+      "N_tested": 21,
+      "N_FDR": 13,
+      "FDR_pct": 61.9
+    },
+    {
+      "Group": "Candidate",
+      "Trait": "DPN",
+      "N_tested": 21,
+      "N_FDR": 8,
+      "FDR_pct": 38.1
+    },
+    {
+      "Group": "Candidate",
+      "Trait": "DR",
+      "N_tested": 21,
+      "N_FDR": 8,
+      "FDR_pct": 38.1
+    },
+    {
+      "Group": "Housekeeping v2",
+      "Trait": "DN",
+      "N_tested": 25,
+      "N_FDR": 9,
+      "FDR_pct": 36.0
+    },
+    {
+      "Group": "Housekeeping v2",
+      "Trait": "DPN",
+      "N_tested": 25,
+      "N_FDR": 14,
+      "FDR_pct": 56.0
+    },
+    {
+      "Group": "Housekeeping v2",
+      "Trait": "DR",
+      "N_tested": 25,
+      "N_FDR": 11,
+      "FDR_pct": 44.0
+    },
+    {
+      "Group": "Non-Candidate",
+      "Trait": "DN",
+      "N_tested": 18,
+      "N_FDR": 7,
+      "FDR_pct": 38.9
+    },
+    {
+      "Group": "Non-Candidate",
+      "Trait": "DPN",
+      "N_tested": 18,
+      "N_FDR": 10,
+      "FDR_pct": 55.6
+    },
+    {
+      "Group": "Non-Candidate",
+      "Trait": "DR",
+      "N_tested": 18,
+      "N_FDR": 8,
+      "FDR_pct": 44.4
+    },
+    {
+      "Group": "T2DM Control",
+      "Trait": "DN",
+      "N_tested": 16,
+      "N_FDR": 4,
+      "FDR_pct": 25.0
+    },
+    {
+      "Group": "T2DM Control",
+      "Trait": "DPN",
+      "N_tested": 16,
+      "N_FDR": 5,
+      "FDR_pct": 31.2
+    },
+    {
+      "Group": "T2DM Control",
+      "Trait": "DR",
+      "N_tested": 16,
+      "N_FDR": 6,
+      "FDR_pct": 37.5
+    }
+  ],
+  "enrichment_whole_blood": [
+    {
+      "Group": "Candidate",
+      "Trait": "DN",
+      "N_tested": 20,
+      "N_FDR": 11,
+      "FDR_pct": 55.0
+    },
+    {
+      "Group": "Candidate",
+      "Trait": "DPN",
+      "N_tested": 20,
+      "N_FDR": 7,
+      "FDR_pct": 35.0
+    },
+    {
+      "Group": "Candidate",
+      "Trait": "DR",
+      "N_tested": 20,
+      "N_FDR": 10,
+      "FDR_pct": 50.0
+    },
+    {
+      "Group": "Housekeeping v2",
+      "Trait": "DN",
+      "N_tested": 25,
+      "N_FDR": 6,
+      "FDR_pct": 24.0
+    },
+    {
+      "Group": "Housekeeping v2",
+      "Trait": "DPN",
+      "N_tested": 25,
+      "N_FDR": 12,
+      "FDR_pct": 48.0
+    },
+    {
+      "Group": "Housekeeping v2",
+      "Trait": "DR",
+      "N_tested": 25,
+      "N_FDR": 9,
+      "FDR_pct": 36.0
+    },
+    {
+      "Group": "Non-Candidate",
+      "Trait": "DN",
+      "N_tested": 22,
+      "N_FDR": 8,
+      "FDR_pct": 36.4
+    },
+    {
+      "Group": "Non-Candidate",
+      "Trait": "DPN",
+      "N_tested": 22,
+      "N_FDR": 11,
+      "FDR_pct": 50.0
+    },
+    {
+      "Group": "Non-Candidate",
+      "Trait": "DR",
+      "N_tested": 22,
+      "N_FDR": 8,
+      "FDR_pct": 36.4
+    },
+    {
+      "Group": "T2DM Control",
+      "Trait": "DN",
+      "N_tested": 12,
+      "N_FDR": 6,
+      "FDR_pct": 50.0
+    },
+    {
+      "Group": "T2DM Control",
+      "Trait": "DPN",
+      "N_tested": 12,
+      "N_FDR": 6,
+      "FDR_pct": 50.0
+    },
+    {
+      "Group": "T2DM Control",
+      "Trait": "DR",
+      "N_tested": 12,
+      "N_FDR": 7,
+      "FDR_pct": 58.3
+    }
+  ],
+  "figure9": {
+    "a": {
+      "rho": 0.9485539553576804,
+      "p": 1.6420674725213703e-144,
+      "ci": [
+        0.9195594669710447,
+        0.967275655379843
+      ],
+      "n": 75
+    },
+    "b": {
+      "rho": 0.6780294332533139,
+      "p": 1.5880959416416485e-13,
+      "ci": [
+        0.5215895273545225,
+        0.7903616232766933
+      ],
+      "n": 66
+    }
+  },
+  "reproduced_published_table2_cells": "0/9"
+}

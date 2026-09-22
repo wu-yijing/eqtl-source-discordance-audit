@@ -1,0 +1,7 @@
+Source,Trait,N_Genes,N_eQTLGen_Tested,N_eQTLGen_FDR,N_GTEx_Tested,N_GTEx_FDR,N_Paired,N_Same_Direction
+Pull-down,DR,15,14,10,0,0,0,0
+Pull-down,DN,15,14,9,0,0,0,0
+Pull-down,DPN,15,14,11,0,0,0,0
+Literature_curation,DR,15,14,10,0,0,0,0
+Literature_curation,DN,15,14,5,0,0,0,0
+Literature_curation,DPN,15,14,9,0,0,0,0

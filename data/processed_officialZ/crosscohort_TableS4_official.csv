@@ -1,0 +1,5 @@
+Gene,FinnGen R13 DR Z (eQTLGen),UKB GCST90043640 DR Z (eQTLGen weights),UKB GCST90043640 DR Z (GTEx v8 MASHR Nerve_Tibial),Random-effects pooled Z,SE,P_pooled,Cochran’s Q,I² (%),τ,95% prediction interval
+RNH1,+2.31,+0.72,+0.55,+1.51,0.79,0.056,1.26,20.6,0.51,−0.33 to +3.36
+"RNH1 (√N_e-weighted, k = 2)",+2.31,+0.72,not included,+2.39,—,0.0168,0.13,0,0,—
+"RNH1 (cross-weight sensitivity: FinnGen with eQTLGen weights, UK Biobank with GTEx MASHR Nerve_Tibial weights; k = 2)",+2.31,not included,+0.55,+1.43,0.88,0.106,1.56,35.7,0.75,−0.84 to +3.69
+RNH1 (withdrawn cohort ieu-b-4803),+2.31,n/a,not included,n/a,—,—,—,—,—,"ieu-b-4803 is not resolvable in IEU OpenGWAS (audited 2026-09-16 against all 50,057 indexed datasets); the value formerly carried (+0.95) had no traceable data or code and is withdrawn."
