@@ -1,6 +1,7 @@
 # eQTL weight-source choice reshapes TWAS gene candidacy — a two-axis dual-source audit
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22910501.svg)](https://doi.org/10.5281/zenodo.22910501)
 
 ## Repository scope
 
@@ -281,11 +282,12 @@ the per-gene eQTLGen Z, BH q and FDR calls underlying the group rows of Tables 1
 
 Wu Y, Chen M, Wu Q, Zhao J, Jin G. (2026). eQTL weight-source choice reshapes TWAS gene candidacy: a two-axis
 dual-source audit with disease-agnostic calibration and a genome-wide benchmark (code & data) (v1.0.0).
-Zenodo.
+Zenodo. https://doi.org/10.5281/zenodo.22910501
 
-<!-- A DOI is minted by Zenodo when the v1.0.0 release is published. The DOI badge above and the DOI in
-     this citation are added in the commit that immediately follows that first publication. They are
-     deliberately absent here so that no unresolved DOI string ships inside the released archive. -->
+<!-- The version DOI 10.5281/zenodo.22910501 pins exactly the archived release described in
+     the manuscript. The concept DOI 10.5281/zenodo.22910500 always resolves to the most
+     recent version. The badge above shows the version DOI so that it cannot drift away from the
+     release this citation names. -->
 
 ## License
 

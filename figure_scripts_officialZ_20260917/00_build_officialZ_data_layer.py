@@ -106,7 +106,7 @@ STALE = [f for f in sorted(os.listdir(PROC)) if f.endswith(('.csv', '.json', '.t
 meta = dict(deprecated_at='2026-09-17',
             reason='pre-correction S-PrediXcan (missing sigma_i factor; PLINK 2-bit decoding bug)',
             superseded_by='data/processed_officialZ/',
-            official_reference='Additional file 1 Tables S2/S12/S14/S17; Zenodo DOI recorded once the v1.0.0 release is published',
+            official_reference='Additional file 1 Tables S2/S12/S14/S17; Zenodo DOI 10.5281/zenodo.22910501 (v1.0.0)',
             stale_files=STALE)
 open(os.path.join(NEW, '_PROVENANCE.json'), 'w', encoding='utf-8').write(
     json.dumps(meta, indent=1, ensure_ascii=False))
