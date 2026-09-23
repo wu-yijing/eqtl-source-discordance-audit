@@ -2,7 +2,7 @@
  "deprecated_at": "2026-09-17",
  "reason": "pre-correction S-PrediXcan (missing sigma_i factor; PLINK 2-bit decoding bug)",
  "superseded_by": "data/processed_officialZ/",
- "official_reference": "Additional file 1 Tables S2/S12/S14/S17; doi concept 10.5281/zenodo.21238202",
+ "official_reference": "Additional file 1 Tables S2/S12/S14/S17; Zenodo DOI recorded once the v1.0.0 release is published",
  "stale_files": [
   "candidate_comparison_DR.csv",
   "covariate_matrix.csv",

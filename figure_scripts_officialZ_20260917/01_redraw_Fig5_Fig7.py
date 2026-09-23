@@ -120,7 +120,11 @@ axb.axvline(0, color='#333333', lw=0.7, ls='--')
 axb.set_yticks(ys); axb.set_yticklabels(labels, fontsize=6.6)
 axb.set_xlabel('RNH1 TWAS Z-score (DR, eQTLGen weights)')
 axb.text(m, ys[2] + 0.30, 'Z = %+.2f (SE %.2f)' % (m, se), ha='center', fontsize=6.2, color=C_POOL)
-axb.text(pi[1], -0.05, '95%% PI %+.2f to %+.2f' % pi, ha='right', fontsize=6.2, color=C_POOL)
+# 2026-09-23：95% PI 标注下移。原为 y = -0.05（默认 va='baseline'），文字上沿几乎贴到 pooled 点
+#   所在行的 y=0，与跨 0.72–2.30 的误差线水平重叠（该行 y 向只差 0.05 单位）。本项目 2026-09-20 的
+#   审计记录已把它列为「P2-2 图内标注遮挡未改（需改图）」。现下移至 y = -0.45 并改 va='top'，
+#   文字占 -0.45 ~ -0.58，仍在 ylim 下界 -0.7 之内，与误差线脱开约 0.45 单位。
+axb.text(pi[1], -0.45, '95%% PI %+.2f to %+.2f' % pi, ha='right', va='top', fontsize=6.2, color=C_POOL)
 axb.set_ylim(-0.7, 2.6)
 axb.set_title('(b) Cross-cohort replication', fontsize=7.6, pad=4)
 fig.tight_layout(); save(fig, 'Fig7')
