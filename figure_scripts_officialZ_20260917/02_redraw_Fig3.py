@@ -58,7 +58,7 @@ axa.plot([-lim, lim], [-lim, lim], ls='--', lw=0.8, color='#555555', zorder=2)
 axa.axhline(0, color='#AAAAAA', lw=0.5); axa.axvline(0, color='#AAAAAA', lw=0.5)
 axa.set_xlim(-lim, lim); axa.set_ylim(-lim, lim)
 axa.set_xlabel('GTEx v8 Whole_Blood Z'); axa.set_ylabel('eQTLGen whole-blood Z')
-axa.text(0.03, 0.96, 'Spearman $\\rho$ = %.2f\nDirection consistency = %.1f%% (%d/%d)\nnaive P = %.1g (anticonservative)'
+axa.text(0.03, 0.96, 'Spearman $\\rho$ = %.2f\nDirection consistency = %.1f%% (%d/%d)\nnaive P = %.1e (anticonservative)'
          % (rho, 100 * same.mean(), int(same.sum()), len(same), pnaive),
          transform=axa.transAxes, va='top', ha='left', fontsize=6.2)
 axa.set_title('(a) 96 primary-arm gene\u2013phenotype pairs (official Z)', fontsize=7.6, pad=4)
