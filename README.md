@@ -24,6 +24,11 @@ Status: code & data release accompanying the manuscript (BMC Genomics submission
 `figures/` and `tables/` are listed in `.gitignore` and are **not** tracked. `figure_scripts_officialZ_20260917/`
 writes figure output into `<repo>/figures/` at run time — that directory is a runtime output, not repository content.
 
+📄 **Which file reproduces which manuscript item — read [`ARCHIVE_NOTE.md`](ARCHIVE_NOTE.md) first.**
+It maps each reported value onto the archive, identifies the authoritative
+(`data/processed_officialZ/`) and superseded (`data/processed/`) layers, and warns that
+`run_all.sh`'s default path executes the early-generation pipeline.
+
 ### Core Question
 
 By how much does the choice of eQTL weight source (GTEx v8 tissue-specific vs. eQTLGen large-scale whole blood) perturb the conclusions a TWAS actually reports — Z-score sign, candidate gene rank and FDR gene candidacy — and how much of that perturbation is attributable to the resource/sample-size axis rather than the tissue-context axis?

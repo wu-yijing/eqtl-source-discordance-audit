@@ -25,4 +25,15 @@ They are retained for provenance only.
 `run_all.sh` still invokes `scripts/python/04_generate_all_figures.py`; that container path
 reproduces the earlier pipeline and the environment, not the current figure set.
 
-*(Added 2026-09-20 as part of the layout cleanup.)*
+`03_enrichment_analysis.py` is the most misleading of the retained scripts, because it *writes a
+report*. Its conclusions predate the implementation correction and contradict the manuscript —
+for example it states that the candidate group has no FDR-significant gene under eQTLGen weights,
+gives a GTEx candidate enrichment rate of 40.7%, and states that the matched candidate-versus-control
+Fisher test "could not be performed". All three are wrong for the current data: the eQTLGen candidate
+arm has 5 FDR-significant pairs (6.2%, 5/81), the GTEx candidate enrichment is 2.4% (2/84), and the
+matched contrast is computable and is reported as Additional file 1: Table S25.
+
+For how every manuscript value maps onto this archive, see `../../ARCHIVE_NOTE.md`.
+
+*(Added 2026-09-20 as part of the layout cleanup; `03_enrichment_analysis.py` named and
+`ARCHIVE_NOTE.md` linked in v1.0.1.)*

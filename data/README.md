@@ -1,78 +1,71 @@
-# GigaDB Dataset: TWAS eQTL Source Confounding Evaluation
+# Processed data — eQTL weight-source audit of TWAS gene candidacy
 
-## Supporting data for: "eQTL source selection systematically biases TWAS cross-population replication"
+Supporting processed data for:
 
-### Dataset Overview
+> **"eQTL weight-source choice reshapes TWAS gene candidacy: a two-axis dual-source audit with disease-agnostic calibration and a genome-wide benchmark"** (BMC Genomics submission)
 
-This dataset contains processed S-PrediXcan TWAS results comparing two eQTL weight sources (GTEx v8 MASHR multi-tissue vs. eQTLGen whole blood) for 104 genes across three diabetic microvascular complications, using FinnGen R13 GWAS data.
+> **Scope of this file.** It describes what is in `data/`. It is **not** the authoritative statement of how the archive maps onto the manuscript — that is `../ARCHIVE_NOTE.md`, together with `processed_officialZ/_PROVENANCE.json`. The inventory of `processed/` further down is retained **as a historical record** of the early-generation (pre-correction) intermediate layer.
 
-**Genes:** 30 HOTAIR candidate + 44 non-candidate + 30 T2DM controls  
-**Phenotypes:** DR (diabetic retinopathy), DN (diabetic nephropathy), DPN (diabetic peripheral neuropathy)  
-**eQTL sources:** GTEx v8 (Nerve_Tibial + Whole_Blood, N≈600) and eQTLGen (Whole Blood, N=31,684)  
-**GWAS source:** FinnGen Release 13
+## Which layer is authoritative
 
-### File Inventory
+| Layer | Status | Use it for |
+|---|---|---|
+| `processed_officialZ/` | ✅ **Authoritative** — official MetaXcan v0.8.1 recompute | Every headline value in the manuscript: GTEx and eQTLGen Z-scores, FDR calls, denominators, cross-cohort values and the genome-wide SCZ arms |
+| `processed/` | ⚠️ **Superseded** — pre-correction (missing S-PrediXcan σᵢ expression-variance factor and a PLINK 2-bit decoding defect) | Nothing in the manuscript, except the "archived working table" that Additional file 1: Table S10 names for the four anchor-set proteins |
 
-| File | Rows | Columns | Size | Description |
-|------|------|---------|------|-------------|
-| `eqtlgen_spredixcan_results.csv` | 219 | 8 | 18 KB | eQTLGen S-PrediXcan full results: Z-scores and P-values for all gene-phenotype pairs |
-| `eqtlgen_vs_gtex_comparison.csv` | 102 | 6 | 5 KB | Paired GTEx vs eQTLGen Z-scores with direction consistency indicators |
-| `covariate_matrix.csv` | 114 | 14 | 9 KB | Gene-level covariates: group assignment, protein source, length, GC%, eQTL SNP counts |
-| `mahalanobis_matched_pairs.csv` | 60 | 8 | 3.6 KB | 30 Mahalanobis-matched candidate-control gene pairs with covariate values (updated: 2026-06-30, 44 high-confidence non-candidate pool) |
-| `enrichment_comparison.csv` | 6 | 10 | 618 B | FDR enrichment rates by group, phenotype, and eQTL source |
-| `candidate_comparison_DR.csv` | 28 | 9 | 2.4 KB | Candidate gene eQTLGen Z-scores for DR phenotype with GTEx cross-reference |
-| `viz_z_distribution.csv` | 126 | 7 | 7.5 KB | Z-score distribution data for density and scatter visualization |
-| `layer_analysis.csv` | 6 | 9 | 319 B | Pull-down vs literature source stratification results |
+The deprecation record is `processed/_PROVENANCE.json`; a narrative version is `processed/_DEPRECATED_勿用_修正前数据_20260917.md`. The two defects are disclosed in the manuscript's Methods, and the earlier routine is retained only as an equivalence cross-check (residual |ΔZ| ≤ 3 × 10⁻⁸).
 
-### Column Descriptions
+## The 104-gene testbed
 
-#### eqtlgen_spredixcan_results.csv
-- `Gene` - Gene symbol
-- `Trait` - Diabetic complication (DR/DN/DPN)
-- `Tissue` - eQTL source (eQTLGen_Whole_Blood)
-- `Group` - Gene group (Candidate/NonCandidate/T2DM_Control)
-- `Z_eQTLGen` - TWAS Z-score using eQTLGen weights
-- `P_eQTLGen` - TWAS P-value
-- `n_SNPs_Model` - Number of SNPs in the predictive model
-- `n_SNPs_Matched` - Number of SNPs matched to GWAS summary statistics
+- **Groups:** 30 HOTAIR-interactome candidate + 44 non-candidate + 30 T2DM control genes
+- **Phenotypes:** diabetic retinopathy (DR), diabetic nephropathy (DN), diabetic peripheral neuropathy (DPN)
+- **eQTL sources:** GTEx v8 MASHR (Nerve_Tibial, Whole_Blood; multi-tissue ACAT-O and Stouffer integration) and eQTLGen phase I whole blood (N = 31,684)
+- **GWAS input:** FinnGen R13 (DR/DN/DPN); UK Biobank GCST90043640 for the cross-cohort check; PGC3 wave-3 schizophrenia for the genome-wide benchmark
 
-#### eqtlgen_vs_gtex_comparison.csv
-- `Gene` - Gene symbol
-- `Trait` - Diabetic complication (DR/DN/DPN)
-- `Group` - Gene group
-- `Z_eQTLGen` - TWAS Z-score using eQTLGen weights
-- `Z_GTEx` - TWAS Z-score using GTEx v8 multi-tissue weights
-- `Same_Direction` - Boolean: whether both Z-scores have the same sign
+## Authoritative files (`processed_officialZ/`)
 
-#### covariate_matrix.csv
-- `Gene` - Gene symbol
-- `Group` - Gene group (Candidate/NonCandidate/T2DM_Control)
-- `Source` - Protein identification method (Pull-down/Literature_curation)
-- `PullDown_Unused` - Protein confidence score (Unused)
-- `PullDown_Cov_pct` - Protein sequence coverage percentage
-- `PullDown_Peptides95` - Number of peptides at 95% confidence
-- `Length_bp` - Gene length in base pairs
-- `GC_pct` - Gene GC content percentage
-- `Max_eQTL_SNPs` / `Min_eQTL_SNPs` / `eQTL_SNPs_Max` / `eQTL_SNPs_Min` / `eQTL_SNPs_Mean` / `eQTL_SNPs_Mean_Num` - eQTL SNP count statistics
+| File | Rows | Content |
+|---|---|---|
+| `gtex_official_Z.csv` | 222 | GTEx v8 MASHR multi-tissue per-gene Z, P and FDR q for 74 testbed genes × 3 phenotypes (= Additional file 1: Table S2) |
+| `eqtlgen_official_Z.csv` | 288 | eQTLGen whole-blood per-gene Z, P, BH q and model-SNP counts for 96 genes (27 candidate + 25 non-candidate + 17 T2DM + 27 housekeeping); the 69-gene universe of Additional file 1: Table S17 is a subset |
+| `primary_arm_96pairs_official.csv` | 96 | The pre-specified primary comparison, both source Z-scores per gene–phenotype pair (= Additional file 1: Table S12) |
+| `crosscohort_TableS4_official.csv` | 4 | Cross-cohort values (= Additional file 1: Table S4a) |
+| `gene_groups_TableS1_official.csv` | 104 | Gene list with group assignments (= Additional file 1: Table S1) |
+| `scz_z_4arm_official.csv` | 15,875 | Genome-wide PGC3 SCZ four-arm Z-scores (8,315-gene complete-case set) |
+| `_PROVENANCE.json` | — | Which layer is authoritative, and why |
 
-### Data Sources (publicly available)
+## Historical inventory of `processed/` (pre-correction; retained for provenance)
+
+| File | Rows | Description as originally generated |
+|---|---|---|
+| `eqtlgen_spredixcan_results.csv` | 219 | eQTLGen S-PrediXcan full results |
+| `eqtlgen_spredixcan_harmonized_results.csv` | 309 | Three-way allele-harmonised eQTLGen results |
+| `eqtlgen_vs_gtex_comparison.csv` | 102 | Paired GTEx vs eQTLGen Z-scores with direction indicators |
+| `covariate_matrix.csv` | 104 | Gene-level covariates (group, protein source, gene length, GC%, eQTL SNP counts) |
+| `mahalanobis_matched_pairs.csv` | 60 | 30 Mahalanobis-matched candidate–control pairs with covariate values |
+| `gtex_acat_o_results.csv` | 237 | GTEx multi-tissue ACAT-O results for 79 genes — **the "archived working table" named in Additional file 1: Table S10** |
+| `gtex_stouffer_integrated.csv` | 237 | Same gene universe, Stouffer integration |
+| `enrichment_comparison.csv`, `enrichment_comparison_harmonized.csv` | — | FDR enrichment rates by group, phenotype and source |
+| `candidate_comparison_DR.csv`, `viz_z_distribution.csv`, `layer_analysis.csv` | — | Visualisation and stratification inputs |
+| `gtex_Nerve_Tibial_*.csv`, `gtex_Whole_Blood_*.csv` | 62–67 each | Single-tissue per-gene results (early generation) |
+
+> **Note on the matched pairs.** `mahalanobis_matched_pairs.csv` is listed among the superseded files because it was written in the same pre-correction run, but its contents are **covariate-only** (gene length, GC content, eQTL SNP counts, matched subclass). The two S-PrediXcan defects cannot propagate to covariates: the 30 matched pairs and every numeric covariate value are **identical** to those in Additional file 1: Table S3. The matched enrichment contrasts of Additional file 1: Table S25 are reproduced by combining this file with the *authoritative* Z tables `processed_officialZ/gtex_official_Z.csv` and `processed_officialZ/eqtlgen_official_Z.csv`; see `../ARCHIVE_NOTE.md`.
+
+## Data sources (all publicly available)
 
 | Dataset | Access |
-|---------|--------|
-| FinnGen R13 | https://www.finngen.fi/ |
-| GTEx v8 MASHR weights | https://gtexportal.org/ |
-| eQTLGen | https://www.eqtlgen.org/ |
-| 1000 Genomes EUR LD | https://www.internationalgenome.org/ |
-| UK Biobank DR (GCST90043640) | https://gwas.mrcieu.ac.uk/ |
-| Xue et al. 2022 DR | ⚠️ **Not resolvable** — the cited ID (`ieu-b-4803`) is absent from IEU OpenGWAS (verified 2026-09-16); the publication's real DR subset (GCST90134546, 1,652 cases / 60,577 controls) has no public summary statistics on the GWAS Catalog FTP. See `analysis_reports/数据集编号溯源_Xue2022_ieu-b-4803.md`. |
-| Sakaue et al. 2021 DN | https://gwas.mrcieu.ac.uk/ |
+|---|---|
+| FinnGen R13 (2024 release) | https://www.finngen.fi/en/access_results |
+| GTEx v8 MASHR weights (models of 21 Jul 2021) | https://predictdb.org/ |
+| eQTLGen phase I cis-eQTL statistics | https://www.eqtlgen.org/ |
+| 1000 Genomes phase 3 EUR LD panel | https://www.internationalgenome.org/ |
+| UK Biobank DR, GWAS Catalog GCST90043640 | https://www.ebi.ac.uk/gwas/studies/GCST90043640 |
+| DN atlas, Sakaue et al. 2021 (ebi-a-GCST90018832) | https://www.ebi.ac.uk/gwas/studies/GCST90018832 |
+| PGC3 schizophrenia wave 3 | figshare, DOI 10.6084/m9.figshare.19426775 |
+| HRT Atlas v1.0 housekeeping universe | https://www.hrtatlas.com/ |
 
-### Analysis Code
+## License
 
-All analysis scripts are available at:
-https://github.com/wu-yijing/eqtl-source-discordance-audit
-(MIT License)
+The code **and** the processed data in this repository are released under the **MIT licence** (see `../LICENSE`), matching the manuscript's Data availability statement.
 
-### License
-
-This dataset is licensed under CC0 1.0 Universal.
+*(Corrected in v1.0.1: earlier revisions of this file carried a superseded manuscript title, a GigaDB dataset framing, a CC0-1.0 licence statement and several pre-correction row counts. See `../ARCHIVE_NOTE.md`.)*
